@@ -1,0 +1,303 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth; 
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(8px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo-img {
+    height: 80px; 
+    width: auto;  
+    transition: transform 0.3s ease; 
+}
+
+.navbar .logo-img:hover {
+    transform: scale(1.05); 
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00aaff;
+}
+
+/* CTA Button */
+.btn-cta {
+    background-color: #00aaff;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: #007bbf;
+    transform: translateY(-5px); 
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('https://source.unsplash.com/1600x900/?technology,innovation') no-repeat center center/cover;
+    background-attachment: fixed; 
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 6vw;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    animation: fadeIn 2s ease-out;
+    letter-spacing: 2px; 
+}
+
+.hero-description {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.8;
+}
+
+.hero .btn-main {
+    background-color: #00aaff;
+    color: white;
+    padding: 0.7rem 2rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.hero .btn-main:hover {
+    background-color: #007bbf;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .navbar .logo-img {
+        height: 50px; /* Adjust logo size on smaller screens */
+    }
+
+    .hero-title {
+        font-size: 8vw; /* Increase hero title size on mobile */
+    }
+
+    .hero-description {
+        font-size: 1.2rem; /* Smaller text size for mobile */
+    }
+}
+
+/* About Section */
+.section-about {
+    background-color: #1a1a1a;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3rem;
+    color: #00aaff;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.section-description {
+    font-size: 1.3rem;
+    color: #ccc;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Events Section */
+.section-events {
+    background-color: #111;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.event-list {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.event {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 15px;
+    width: 30%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.event:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0, 183, 255, 0.6);
+}
+
+.event-title {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.event p {
+    color: #ccc;
+}
+
+/* Team Section */
+.section-team {
+    background: url('https://source.unsplash.com/1600x900/?team,creativity') no-repeat center center/cover;
+    padding: 6rem 2rem;
+    text-align: center;
+    background-size: cover;
+    color: white;
+}
+
+/* Footer */
+.footer {
+    background-color: #111;
+    color: #bbb;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .event-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .event {
+        width: 80%;
+        margin: 1rem 0;
+    }
+
+    .hero-title {
+        font-size: 8vw;
+    }
+}
+
+/* About Section */
+.section-about {
+    background-color: #1a1a1a;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+/* Modernistic Box Container with Neon Effect :) */
+.about-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.6)); /* Subtle gradient */
+    border-radius: 15px; /* Rounded corners*/
+    padding: 3rem; /* Space inside the box */
+    max-width: 900px; /* Limit the width for readability */
+    margin: 0 auto; /* Center the container */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Neon Glow Effect on Hover */
+.about-container:hover {
+    transform: translateY(-10px); /* Slight lift effect */
+    box-shadow: 0 8px 30px rgba(0, 183, 255, 0.6); /* Stronger neon shadow on hover */
+}
+
+/* Neon Effect on Title */
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* Section Description */
+.section-description {
+    font-size: 1.3rem;
+    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.5rem; /* Adjust title size for smaller screens */
+    }
+
+    .section-description {
+        font-size: 1.1rem; /* Adjust description size */
+        padding: 0 1rem; /* Add padding for smaller screens */
+    }
+
+    .about-container {
+        padding: 2rem; /* Less padding on smaller screens */
+    }
+}
