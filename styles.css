@@ -210,6 +210,7 @@ body {
     color: #ccc;
 }
 
+
 /* Team Section */
 .section-team {
     background: url('https://source.unsplash.com/1600x900/?team,creativity') no-repeat center center/cover;
@@ -218,6 +219,59 @@ body {
     background-size: cover;
     color: white;
 }
+
+.team-cards-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.team-cards-container .col-md-4 {
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0, 183, 255, 0.6);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+.social a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
+
+.social a:hover {
+    color: #00aaff;
+}
+
 
 /* Footer */
 .footer {
@@ -243,6 +297,7 @@ body {
         font-size: 8vw;
     }
 }
+
 
 /* About Section */
 .section-about {
