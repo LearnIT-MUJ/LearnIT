@@ -222,13 +222,9 @@ body {
 
 .team-cards-container {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 3rem;
-}
-
-.team-cards-container .col-md-4 {
-    margin-bottom: 2rem;
+    gap: 20px;
+    justify-content: center;
 }
 
 .card {
@@ -236,11 +232,8 @@ body {
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 40px rgba(0, 183, 255, 0.6);
+    width: 30%;
+    margin-bottom: 1rem;
 }
 
 .card-img-top {

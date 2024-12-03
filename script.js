@@ -1,17 +1,16 @@
 // JavaScript for more dynamic effects
-document.querySelector('.card').addEventListener('mouseenter', function() {
+document.querySelector('.card')?.addEventListener('mouseenter', function() {
     this.style.transform = "scale(1.05)";
 });
 
-document.querySelector('.card').addEventListener('mouseleave', function() {
+document.querySelector('.card')?.addEventListener('mouseleave', function() {
     this.style.transform = "scale(1)";
 });
 
-
-//JS for team members data
+// JS for team members data
 const facultyData = [
   {
-    image: 'image1.jpg',
+    image: 'https://via.placeholder.com/150',
     name: 'Sana Singh',
     title: 'President of LearnIT',
     role: 'Head of LearnIT',
@@ -19,9 +18,9 @@ const facultyData = [
     isNormalLink: true
   },
   {
-    image: 'image2.jpg',
+    image: 'https://via.placeholder.com/150',
     name: 'Yash Kamra',
-    title: 'Technical Secratary',
+    title: 'Technical Secretary',
     role: 'Techky Guy',
     linkedin: 'https://www.linkedin.com/in/yash-kamra-a9aa73259/',
     isNormalLink: true
@@ -29,13 +28,12 @@ const facultyData = [
   // Add more team members here
 ];
 
-
 // Function to create and display team member cards
 function createTeamCards() {
     const teamContainer = document.getElementById('team-cards');
     
     facultyData.forEach((faculty, index) => {
-        const card = `
+        const cardHTML = `
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="${index * 100}">
                 <div class="card">
                     <a href="#">
@@ -56,9 +54,25 @@ function createTeamCards() {
                 </div>
             </div>
         `;
-        teamContainer.innerHTML += card;
+
+        const cardElement = document.createElement('div');
+        cardElement.innerHTML = cardHTML.trim();
+        
+        const card = cardElement.firstChild; // Get the newly created card element
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = "scale(1.05)";
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = "scale(1)";
+        });
+
+        teamContainer.appendChild(card);
     });
 }
 
-// Call the function to display the cards when the page loads
-createTeamCards();
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM content loaded');
+    createTeamCards();
+    AOS.init(); // Initialize AOS for animations
+});
