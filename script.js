@@ -8,25 +8,74 @@ document.querySelector('.card')?.addEventListener('mouseleave', function() {
 });
 
 // JS for team members data
-const facultyData = [
+const executiveData = [
   {
     image: 'https://via.placeholder.com/150',
     name: 'Sana Singh',
-    title: 'President of LearnIT',
-    role: 'Head of LearnIT',
-    linkedin: 'https://www.linkedin.com/in/sana-singh-77b29b236/',
+    title: 'Captain:- Leading the voyage with big ideas and even bigger plans, meet Sana, our amazing President! 🏴‍☠️',
+    role: 'President of LearnIT',
+    LinkedIn: 'https://www.linkedin.com/in/sana-singh-77b29b236/',
     isNormalLink: true
   },
   {
     image: 'https://via.placeholder.com/150',
     name: 'Yash Kamra',
-    title: 'Technical Secretary',
-    role: 'Techky Guy',
-    linkedin: 'https://www.linkedin.com/in/yash-kamra-a9aa73259/',
+    title: 'Chief Engineer:- Steering the tech engine of our ship with brilliance Yash is our tech wizard extraordinaire! ⚙️',
+    role: 'Technical Secretary',
+    linkedIn: 'https://www.linkedin.com/in/yash-kamra-a9aa73259/',
     isNormalLink: true
   },
-  // Add more team members here
-];
+  {
+    image: 'https://via.placeholder.com/150',
+    name: 'Vighnesh Nikam',
+    title: 'Navigator:- Master of organization, charting the course to success, say hey to Vighnesh, our General Secretary! 🌟',
+    role: 'General Secretary',
+    linkedIn: 'https://www.linkedin.com/in/vighnesh-nikam-162371221/',
+    isNormalLink: true
+},
+{
+    image: 'https://via.placeholder.com/150',
+    name: 'Varshita',
+    title: 'Event Helmsman:- Guiding the ship through exciting adventures and celebrations, meet Varshita, our Head of Events! 🎉',
+    role: 'Head of Events',
+    linkedIn: 'https://www.linkedin.com/in/yash-kamra-a9aa73259/',
+    isNormalLink: true
+  },
+    {
+    image: 'https://via.placeholder.com/150',
+    name: 'Baibhav',
+    title: 'Treasurer of the Ship’s Chest:- Keeping the ship’s finances afloat and the budget in check, shoutout to Baibhav! 🪙',
+    role: 'Treasurer',
+    LinkedIn: 'https://www.linkedin.com/in/baibhav-kumar-0b15a524a/',
+    isNormalLink: true
+  },
+    {
+    image: 'https://via.placeholder.com/150',
+    name: 'Ritik Laxwani',
+    title: 'First Mate of Promotion:- Spreading the word and rallying the crew’s spirit, here’s Ritik, our promo genius! 📢',
+    role: 'Head of Promotion',
+    linkedIn: 'https://www.linkedin.com/in/yash-kamra-a9aa73259/',
+    isNormalLink: true
+  },
+    {
+    image: 'https://via.placeholder.com/150',
+    name: 'Srishti Mahapatra',
+    title: 'Sail Designer:- The artist who makes our sails vibrant and eye-catching, with Srishti as Head of Design! 🌈',
+    role: 'Head of Design',
+    linkedIn: 'https://www.linkedin.com/in/srishti-mahapatra-b54062246/',
+    isNormalLink: true
+  },
+    {
+    image: 'https://via.placeholder.com/150',
+    name: 'Arav Kumar',
+    title: 'Logkeeper:- Bringing our journey to life through words, meet Arav, the storyteller of the crew!',
+    role: 'Head of Content',
+    LinkedIn: 'https://www.linkedin.com/in/arav-kumar-18496824a/',
+    isNormalLink: true
+  },
+
+  
+];// Add more team members here
 
 // Function to create and display team member cards
 function createTeamCards() {
@@ -46,7 +95,7 @@ function createTeamCards() {
                         <ul class="list-inline social social-sm">
                             <li class="list-inline-item">
                                 <a href="${faculty.linkedin}">
-                                    ${faculty.isNormalLink ? '<i class="fa fa-globe"></i>' : '<i class="fab fa-linkedin"></i>'}
+                                    ${faculty.isNormalLink ? '<i class="fa fa-globe"></i>' : '<i class="fab fa-LinkedIn"></i>'}
                                 </a>
                             </li>
                         </ul>
