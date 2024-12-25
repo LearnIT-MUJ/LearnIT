@@ -1,69 +1,88 @@
 /* Team Section */
 .section-team {
-    background: rgba(0, 0, 0, 0.6);
+    background-color: #1a1a1a;
+    color: white;
     padding: 6rem 2rem;
     text-align: center;
-    background-size: cover;
-    color: white;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #00aaff;
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 3rem;
 }
 
 .team-cards-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Space between cards */
-    justify-content: center; /* Center align cards */
-    padding: 2rem 0;
+    gap: 20px;
+    justify-content: center;
 }
 
+/* Card Styling */
 .card {
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 300px; /* Fixed width for cards */
-    margin: 0.5rem; /* Spacing between cards */
-    display: flex;
-    flex-direction: column; /* Ensure content stacks vertically */
+    width: calc(33.333% - 20px);
+    max-width: 300px;
+    text-align: center;
+    color: #fff;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 183, 255, 0.6);
 }
 
 .card-img-top {
     height: 200px;
     object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 .card-body {
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
-.card-title {
-    font-size: 1.25rem;
+.card-body h5 {
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #00aaff;
 }
 
-.card-text {
+.card-body p {
     font-size: 1rem;
-    color: #ccc;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
-.social {
-    display: flex;
-    justify-content: center;
-    gap: 10px; /* Space between social icons */
-}
-
-.social a {
-    color: #fff;
+.social-links a {
     font-size: 1.5rem;
+    color: #00aaff;
+    margin-right: 10px;
     transition: color 0.3s ease;
 }
 
-.social a:hover {
-    color: #00aaff;
+.social-links a:hover {
+    color: #007bbf;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+
+    .social-links a {
+        font-size: 1.2rem;
+    }
 }
 
 /* Hover Effects */
