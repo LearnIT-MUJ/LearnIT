@@ -3,36 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team - LearnIT</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LearnIT Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static/team/exec/exec_card.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="static/teams/exec/exec_card.css">
+
 </head>
 <body>
-    <!-- Navbar -->
+
+    <!-- Navigation -->
     <nav class="navbar">
-        <a href="index.html">Home</a>
-        <a href="events.html">Events</a>
-        <a href="teams.html">Team</a>
-        <a href="contact.html">Contact</a>
+        <div class="logo">
+            <img src="static/Logo.png" alt="LearnIT Logo" class="logo-img">
+            <h1 class="logo-text">
+                <span id="logo-typing">LearnIT</span>
+            </h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="teams.html">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="" target="_blank" class="btn-cta">Join Us</a></li>
+        </ul>
     </nav>
 
-    <!-- Team Section -->
+    
+     <!-- Team Section -->
     <section id="team" class="section-team">
         <div class="container">
             <h2 class="section-title">Meet Our Executives</h2>
-            <p class="section-description">Our talented and dedicated executives are driving LearnIT forward.</p>
+            <p class="section-description">Our talented and dedicated executives drive LearnIT forward.</p>
             <div id="team-cards" class="team-cards-container">
                 <!-- Cards will be dynamically generated here -->
             </div>
         </div>
     </section>
 
-    <!-- Scripts -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="static/teams/exec/exec.js"></script>
-</body>
-</html>
 
     <!-- Footer -->
     <footer class="footer">
@@ -44,3 +53,4 @@
 
 </body>
 </html>
+
