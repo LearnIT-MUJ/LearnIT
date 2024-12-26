@@ -89,10 +89,10 @@ const executiveData = [
     teamContainer.insertAdjacentHTML('beforeend', cardHTML);
   });
  
-  AOS.init({
-    duration: 1200,
-    once: true,
-  });
-}
+ AOS.init({
+  duration: 1200, // Adjust duration for smoother animation
+  once: true,     // Trigger animation only once
+});
+
 
 document.addEventListener('DOMContentLoaded', createTeamCards);
