@@ -62,21 +62,22 @@ const executiveData = [
       LinkedIn: 'https://www.linkedin.com/in/arav-kumar-18496824a/',
     },
   ];
-  
-  // Function to create and display team member cards
-  function createTeamCards() {
-    const teamContainer = document.getElementById('team-cards');
-  
-    executiveData.forEach((executive, index) => {
-        let socialLinks = '';
+
+
+
+// Function to create and display team member cards
+function createTeamCards() {
+  const teamContainer = document.getElementById('team-cards');
+
+  executiveData.forEach((executive, index) => {
+    let socialLinks = '';
     for (const [platform, url] of Object.entries(executive.links)) {
-      const iconClass = platform === 'LinkedIn' ? 'fab fa-LinkedIn' :
-                       // platform === 'twitter' ? 'fab fa-twitter' :
-                        'fab fa-Instagram';
+      const iconClass = platform === 'linkedin' ? 'fab fa-linkedin' :
+                        platform === 'instagram' ? 'fab fa-instagram' : '';
       socialLinks += `<a href="${url}" target="_blank"><i class="${iconClass}"></i></a>`;
     }
-        
-      const cardHTML = `
+
+    const cardHTML = `
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="${index * 100}">
         <div class="card">
           <img class="card-img-top" src="${executive.image}" alt="${executive.name}">
@@ -91,11 +92,11 @@ const executiveData = [
     `;
     teamContainer.insertAdjacentHTML('beforeend', cardHTML);
   });
- 
- AOS.init({
-  duration: 1200, // Adjust duration for smoother animation
-  once: true,     // Trigger animation only once
-});
 
+  AOS.init({
+    duration: 1200, // Adjust duration for smoother animation
+    once: true,     // Trigger animation only once
+  });
+}
 
 document.addEventListener('DOMContentLoaded', createTeamCards);
