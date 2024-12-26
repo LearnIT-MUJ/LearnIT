@@ -1,3 +1,6 @@
+console.log("exec.js is loaded");
+
+
 // JS for executive members' data
 const executiveData = [
     {
