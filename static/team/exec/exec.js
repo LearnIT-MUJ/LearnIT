@@ -69,20 +69,15 @@ function createTeamCards() {
   executiveData.forEach((executive, index) => {
     let socialLinks = '';
 
-    // Check for LinkedIn
-    if (executive.Linkedin) {
-      socialLinks += `
-        <a href="${executive.Linkedin}" target="_blank">
-          <i class="fab fa-linkedin"></i>
-        </a>`;
+    // Validate and add social media links dynamically
+    if (executive.links && executive.links.linkedin) {
+      socialLinks += `<a href="${executive.links.linkedin}" target="_blank"><i class="fab fa-linkedin"></i></a>`;
     }
-
-    // Check for Instagram
-    if (executive.Instagram) {
-      socialLinks += `
-        <a href="${executive.Instagram}" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>`;
+    if (executive.links && executive.links.instagram) {
+      socialLinks += `<a href="${executive.links.instagram}" target="_blank"><i class="fab fa-instagram"></i></a>`;
+    }
+    if (executive.links && executive.links.twitter) {
+      socialLinks += `<a href="${executive.links.twitter}" target="_blank"><i class="fab fa-twitter"></i></a>`;
     }
 
     const cardHTML = `
@@ -102,8 +97,8 @@ function createTeamCards() {
   });
 
   AOS.init({
-    duration: 1200, // Adjust duration for smoother animation
-    once: true,     // Trigger animation only once
+    duration: 1200,
+    once: true,
   });
 }
 
