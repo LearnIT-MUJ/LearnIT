@@ -1,69 +1,66 @@
 console.log("exec.js is loaded");
 
-
 // JS for executive members' data
 const executiveData = [
-    {
-      image: 'https://via.placeholder.com/150',
-      name: 'Sana Singh',
-      title: 'Captain:- Leading the voyage with big ideas and even bigger plans, meet Sana, our amazing President! 🏴‍☠️',
-      role: 'President of LearnIT',
-      LinkedIn: 'https://www.linkedin.com/in/sana-singh-77b29b236/',
-      Instagram: 'https://instagram.com/sana_singh',  
-    },
-    {
-      image: 'https://via.placeholder.com/150',
-      name: 'Yash Kamra',
-      title: 'Chief Engineer:- Steering the tech engine of our ship with brilliance Yash is our tech wizard extraordinaire! ⚙️',
-      role: 'Technical Secretary',
-      LinkedIn: 'https://www.linkedin.com/in/yash-kamra-a9aa73259/',
-      Instagram: 'https://instagram.com/yash_kamra',
-    },
-    {
-      image: 'https://via.placeholder.com/150',
-      name: 'Vighnesh Nikam',
-      title: 'Navigator:- Master of organization, charting the course to success, say hey to Vighnesh, our General Secretary! 🌟',
-      role: 'General Secretary',
-      LinkedIn: 'https://www.linkedin.com/in/vighnesh-nikam-162371221/',
-    },
-    {
-      image: 'https://via.placeholder.com/150',
-      name: 'Varshita',
-      title: 'Event Helmsman:- Guiding the ship through exciting adventures and celebrations, meet Varshita, our Head of Events! 🎉',
-      role: 'Head of Events',
-      LinkedIn: 'https://www.linkedin.com/in/varshita/',
-    },
-    {
-      image: 'https://via.placeholder.com/150',
-      name: 'Baibhav',
-      title: 'Treasurer of the Ship’s Chest:- Keeping the ship’s finances afloat and the budget in check, shoutout to Baibhav! 🪙',
-      role: 'Treasurer',
-      LinkedIn: 'https://www.linkedin.com/in/baibhav-kumar-0b15a524a/',
-    },
-    {
-      image: 'https://via.placeholder.com/150',
-      name: 'Ritik Laxwani',
-      title: 'First Mate of Promotion:- Spreading the word and rallying the crew’s spirit, here’s Ritik, our promo genius! 📢',
-      role: 'Head of Promotion',
-      LinkedIn: 'https://www.linkedin.com/in/ritik-laxwani/',
-    },
-    {
-      image: 'https://via.placeholder.com/150',
-      name: 'Srishti Mahapatra',
-      title: 'Sail Designer:- The artist who makes our sails vibrant and eye-catching, with Srishti as Head of Design! 🌈',
-      role: 'Head of Design',
-      Linkedin: 'https://www.linkedin.com/in/srishti-mahapatra-b54062246/',
-    },
-    {
-      image: 'https://via.placeholder.com/150',
-      name: 'Arav Kumar',
-      title: 'Logkeeper:- Bringing our journey to life through words, meet Arav, the storyteller of the crew!',
-      role: 'Head of Content',
-      LinkedIn: 'https://www.linkedin.com/in/arav-kumar-18496824a/',
-    },
-  ];
-
-
+  {
+    image: 'https://via.placeholder.com/150',
+    name: 'Sana Singh',
+    title: 'Captain:- Leading the voyage with big ideas and even bigger plans, meet Sana, our amazing President! 👑',
+    role: 'President of LearnIT',
+    Linkedin: 'https://www.linkedin.com/in/sana-singh-77b29b236/',
+    Instagram: 'https://instagram.com/sana_singh',  
+  },
+  {
+    image: 'https://via.placeholder.com/150',
+    name: 'Yash Kamra',
+    title: 'Chief Engineer:- Steering the tech engine of our ship with brilliance Yash is our tech wizard extraordinaire! 🛠️',
+    role: 'Technical Secretary',
+    Linkedin: 'https://www.linkedin.com/in/yash-kamra-a9aa73259/',
+    Instagram: 'https://instagram.com/yash_kamra',
+  },
+  {
+    image: 'https://via.placeholder.com/150',
+    name: 'Vighnesh Nikam',
+    title: 'Navigator:- Master of organization, charting the course to success, say hey to Vighnesh, our General Secretary! 🌟',
+    role: 'General Secretary',
+    Linkedin: 'https://www.linkedin.com/in/vighnesh-nikam-162371221/',
+  },
+  {
+    image: 'https://via.placeholder.com/150',
+    name: 'Varshita',
+    title: 'Event Helmsman:- Guiding the ship through exciting adventures and celebrations, meet Varshita, our Head of Events! 🎉',
+    role: 'Head of Events',
+    Linkedin: 'https://www.linkedin.com/in/varshita/',
+  },
+  {
+    image: 'https://via.placeholder.com/150',
+    name: 'Baibhav',
+    title: 'Treasurer of the Ship’s Chest:- Keeping the ship’s finances afloat and the budget in check, shoutout to Baibhav! 💰',
+    role: 'Treasurer',
+    Linkedin: 'https://www.linkedin.com/in/baibhav-kumar-0b15a524a/',
+  },
+  {
+    image: 'https://via.placeholder.com/150',
+    name: 'Ritik Laxwani',
+    title: 'First Mate of Promotion:- Spreading the word and rallying the crew’s spirit, here’s Ritik, our promo genius! 📢',
+    role: 'Head of Promotion',
+    Linkedin: 'https://www.linkedin.com/in/ritik-laxwani/',
+  },
+  {
+    image: 'https://via.placeholder.com/150',
+    name: 'Srishti Mahapatra',
+    title: 'Sail Designer:- The artist who makes our sails vibrant and eye-catching, with Srishti as Head of Design! 🌈',
+    role: 'Head of Design',
+    Linkedin: 'https://www.linkedin.com/in/srishti-mahapatra-b54062246/',
+  },
+  {
+    image: 'https://via.placeholder.com/150',
+    name: 'Arav Kumar',
+    title: 'Logkeeper:- Bringing our journey to life through words, meet Arav, the storyteller of the crew! 📰',
+    role: 'Head of Content',
+    Linkedin: 'https://www.linkedin.com/in/arav-kumar-18496824a/',
+  },
+];
 
 // Function to create and display team member cards
 function createTeamCards() {
@@ -71,10 +68,21 @@ function createTeamCards() {
 
   executiveData.forEach((executive, index) => {
     let socialLinks = '';
-    for (const [platform, url] of Object.entries(executive.links)) {
-      const iconClass = platform === 'linkedin' ? 'fab fa-linkedin' :
-                        platform === 'instagram' ? 'fab fa-instagram' : '';
-      socialLinks += `<a href="${url}" target="_blank"><i class="${iconClass}"></i></a>`;
+
+    // Check for LinkedIn
+    if (executive.Linkedin) {
+      socialLinks += `
+        <a href="${executive.Linkedin}" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>`;
+    }
+
+    // Check for Instagram
+    if (executive.Instagram) {
+      socialLinks += `
+        <a href="${executive.Instagram}" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>`;
     }
 
     const cardHTML = `
