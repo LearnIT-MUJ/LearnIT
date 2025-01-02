@@ -45,6 +45,30 @@ body {
     transform: scale(1.05); 
 }
 
+/* Hide the checkbox by default */
+.nav-toggle {
+    display: none;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;    /* Hidden on desktop by default */
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    width: 25px;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
 /* Navigation Links */
 .nav-links {
     display: flex;
@@ -172,54 +196,6 @@ body {
     margin: 0 auto;
 }
 
-/* Events Section */
-.section-events {
-    background-color: #111;
-    padding: 6rem 2rem;
-    text-align: center;
-}
-
-.event-list {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 3rem;
-    flex-wrap: wrap;
-}
-
-.event {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 2rem;
-    border-radius: 15px;
-    width: 30%;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 2rem;
-}
-
-.event:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 40px rgba(0, 183, 255, 0.6);
-}
-
-.event-title {
-    color: white;
-    margin-bottom: 1rem;
-}
-
-.event p {
-    color: #ccc;
-}
-
-/* Team Section */
-.section-team {
-    background: url('https://source.unsplash.com/1600x900/?team,creativity') no-repeat center center/cover;
-    padding: 6rem 2rem;
-    text-align: center;
-    background-size: cover;
-    color: white;
-}
-
-/* Footer */
 .footer {
     background-color: #111;
     color: #bbb;
@@ -227,17 +203,7 @@ body {
     text-align: center;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
-    .event-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .event {
-        width: 80%;
-        margin: 1rem 0;
-    }
 
     .hero-title {
         font-size: 8vw;
@@ -251,33 +217,34 @@ body {
     text-align: center;
 }
 
-/* Modernistic Box Container with Neon Effect :) */
+/* Modernistic Box Container with Neon Effect */
 .about-container {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.6)); /* Subtle gradient */
-    border-radius: 15px; /* Rounded corners*/
-    padding: 3rem; /* Space inside the box */
-    max-width: 900px; /* Limit the width for readability */
-    margin: 0 auto; /* Center the container */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(0, 0, 0, 0.6)
+    );
+    border-radius: 15px;
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
-/* Neon Glow Effect on Hover */
 .about-container:hover {
-    transform: translateY(-10px); /* Slight lift effect */
-    box-shadow: 0 8px 30px rgba(0, 183, 255, 0.6); /* Stronger neon shadow on hover */
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 183, 255, 0.6);
 }
 
-/* Neon Effect on Title */
 .section-title {
     font-size: 3rem;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
 }
 
-/* Section Description */
 .section-description {
     font-size: 1.3rem;
     color: #ccc;
@@ -286,18 +253,50 @@ body {
     opacity: 0.9;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .section-title {
-        font-size: 2.5rem; /* Adjust title size for smaller screens */
+        font-size: 2.5rem; 
     }
 
     .section-description {
-        font-size: 1.1rem; /* Adjust description size */
-        padding: 0 1rem; /* Add padding for smaller screens */
+        font-size: 1.1rem; 
+        padding: 0 1rem; 
     }
 
     .about-container {
         padding: 2rem; /* Less padding on smaller screens */
+    }
+}
+
+/* -----------------------------------------------
+   NEW MEDIA QUERY FOR HAMBURGER NAV TOGGLE
+----------------------------------------------- */
+@media (max-width: 768px) {
+
+    .hamburger {
+      display: flex;
+    }
+
+    /* The nav-links become hidden by default (mobile) */
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 70px; 
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .nav-links li {
+      margin: 1rem 0;
+    }
+
+    /* When checkbox is checked, nav-links appear */
+    .nav-toggle:checked + .hamburger + .nav-links {
+      display: flex;
     }
 }

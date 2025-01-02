@@ -7,17 +7,28 @@
     <title>LearnIT Club</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static/events/events.css">
 </head>
 <body>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="logo">
-            <img src="static/Logo.png" alt="LearnIT Logo" class="logo-img">
-            <h1 class="logo-text">
-                <span id="logo-typing">LearnIT</span>
-            </h1>
+        <img src="static/Logo.png" alt="LearnIT Logo" class="logo-img">
+        <h1 class="logo-text">
+            <span id="logo-typing">LearnIT</span>
+        </h1>
         </div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    
+        <!-- Label that becomes the "hamburger" icon -->
+        <label for="nav-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+        </label>
+    
+        <!-- Navigation Links -->
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="events.html">Events</a></li>
@@ -31,26 +42,8 @@
     <section id="events" class="section-events">
         <div class="container">
             <h2 class="section-title">Upcoming Events</h2>
-    
-            <!-- Countdown Timer for Upcoming Event -->
-            <div id="countdown-timer" class="countdown-timer">
-                <h3>Next Event Countdown</h3>
-                <p id="days-remaining">Loading...</p>
-            </div>
-    
-            <!-- Event List for Upcoming Events -->
-            <div class="event-list" id="event-list">
-                <!-- Upcoming event cards will be dynamically added here -->
-            </div>
-    
-            <!-- Slideshow for Past Events -->
-            <div id="past-events-slider" class="past-events-slider">
-                <h3>Past Events</h3>
-                <div class="slider-images">
-                    <img src="event1.jpg" alt="AWS EVENT 2023" class="slider-image">
-                    <img src="event2.jpg" alt="Past Event 2" class="slider-image">
-                    <img src="event3.jpg" alt="Past Event 3" class="slider-image">
-                </div>
+            <div class="event-list">
+                <!--Dynamic Generated cards-->
             </div>
         </div>
     </section>
@@ -59,6 +52,7 @@
     <footer class="footer">
         <p>&copy; 2024 LearnIT Club. All Rights Reserved.</p>
     </footer>
+    <script src="static/events/event.js"></script>
 
 </body>
 </html>

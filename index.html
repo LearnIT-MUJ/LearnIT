@@ -7,17 +7,30 @@
     <title>LearnIT Club</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="logo">
-            <img src="static/Logo.png" alt="LearnIT Logo" class="logo-img">
-            <h1 class="logo-text">
-                <span id="logo-typing">LearnIT</span>
-            </h1>
+        <img src="static/Logo.png" alt="LearnIT Logo" class="logo-img">
+        <h1 class="logo-text">
+            <span id="logo-typing">LearnIT</span>
+        </h1>
         </div>
+    
+        <!-- Hidden checkbox for toggle -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    
+        <!-- Label that becomes the "hamburger" icon -->
+        <label for="nav-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+        </label>
+    
+        <!-- Navigation Links -->
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="events.html">Events</a></li>
@@ -26,6 +39,7 @@
             <li><a href="" target="_blank" class="btn-cta">Join Us</a></li>
         </ul>
     </nav>
+  
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -42,11 +56,14 @@
             <p class="section-description">We are a community of tech enthusiasts focused on AI, machine learning, and creating innovative solutions. Join us in exploring the future of technology.</p>
         </div>
     </section>
+    
+
 
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 LearnIT Club. All Rights Reserved.</p>
     </footer>
-
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 </body>
 </html>
