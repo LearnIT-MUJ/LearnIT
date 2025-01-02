@@ -7,6 +7,7 @@
     <title>LearnIT Club</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static/events/events.css">
 </head>
 <body>
 
@@ -18,8 +19,6 @@
             <span id="logo-typing">LearnIT</span>
         </h1>
         </div>
-    
-        <!-- Hidden checkbox for toggle -->
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
     
         <!-- Label that becomes the "hamburger" icon -->
@@ -44,18 +43,7 @@
         <div class="container">
             <h2 class="section-title">Upcoming Events</h2>
             <div class="event-list">
-                <div class="event">
-                    <h3 class="event-title">AI & Machine Learning</h3>
-                    <p>Learn the fundamentals of AI in our hands-on workshop. Suitable for beginners.</p>
-                </div>
-                <div class="event">
-                    <h3 class="event-title">Hackathon 2024</h3>
-                    <p>Compete with peers in our 48-hour hackathon. Prizes and networking opportunities await!</p>
-                </div>
-                <div class="event">
-                    <h3 class="event-title">Tech Talk Series</h3>
-                    <p>Industry experts share insights into the latest trends in AI, cloud computing, and more.</p>
-                </div>
+                <!--Dynamic Generated cards-->
             </div>
         </div>
     </section>
@@ -64,6 +52,7 @@
     <footer class="footer">
         <p>&copy; 2024 LearnIT Club. All Rights Reserved.</p>
     </footer>
+    <script src="static/events/event.js"></script>
 
 </body>
 </html>
