@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Apply styles
         snowflake.style.left = `${position}%`; // Horizontal starting position
         snowflake.style.fontSize = `${size}px`; // Snowflake size
-        snowflake.style.animationDuration = `${duration}s, ${duration / 2}s`; // Fall and sway durations
+        snowflake.style.animation = `fall ${duration}s linear infinite, sway ${duration/2}s ease-in-out infinite`; // Fall and sway durations
         snowflake.style.animationDelay = `${delay}s`; // Stagger animations
 
         // Add snowflake to the container
