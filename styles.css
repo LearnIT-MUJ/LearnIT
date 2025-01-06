@@ -267,7 +267,7 @@ body {
         padding: 2rem; /* Less padding on smaller screens */
     }
 }
-
+/* 
 /* -----------------------------------------------
    NEW MEDIA QUERY FOR HAMBURGER NAV TOGGLE
 ----------------------------------------------- */
@@ -301,49 +301,17 @@ body {
     }
 }
 
+.snowflake {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  font-size: 24px;
+  color: white;
+  animation: fall 10s linear infinite;
+}
 
-    /* -----------------------------------------------
-       Snowflake Styles for Background Animation
-    ----------------------------------------------- */
-    /* Snowflakes Container */
-    .snowflakes-container {
-        position: fixed; /* Fixed so it stays in place while scrolling */
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1; /* Send behind all content */
-        pointer-events: none; /* Ensure it's not clickable */
-        overflow: hidden; /* Hide overflow */
-    }
-
-    /* Individual Snowflake */
-    .snowflake {
-        position: absolute;
-        top: -10%;
-        color: #fff;
-        font-size: 1rem; /* Default size */
-        opacity: 0.8;
-        animation: fall linear infinite, sway ease-in-out infinite;
-    }
-
-    /* Keyframes for falling animation */
-    @keyframes fall {
-        0% {
-            transform: translateY(-10%);
-        }
-        100% {
-            transform: translateY(110%);
-        }
-    }
-
-    /* Keyframes for swaying motion */
-    @keyframes sway {
-        0%, 100% {
-            transform: translateX(0);
-        }
-        50% {
-            transform: translateX(20px);
-        }
-    }
-
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
