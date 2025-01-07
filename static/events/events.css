@@ -3,16 +3,17 @@
     background-color: #111;
     padding: 6rem 2rem;
     text-align: center;
-  }
-  
-  .event-list {
+}
+
+.event-list {
     display: flex;
     justify-content: space-between;
     margin-top: 3rem;
     flex-wrap: wrap;
-  }
-  
-  .event {
+}
+
+/* Event Card */
+.event {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 2rem;
     border-radius: 15px;
@@ -20,32 +21,36 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 2rem;
-  }
-  
-  .event:hover {
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(30px); /* Initial downward position */
+    animation: fadeInUp 0.8s ease forwards; /* Fade-in animation */
+}
+
+/* Hover Effects */
+.event:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 40px rgba(0, 183, 255, 0.6);
-  }
-  
-  .event-title {
+}
+
+.event-title {
     color: white;
     margin-bottom: 1rem;
-  }
-  
-  .event p {
+}
+
+.event p {
     color: #ccc;
-  }
-  
-  /* Countdown Text */
-  .event-countdown {
+}
+
+/* Countdown Text */
+.event-countdown {
     margin-top: 1rem;
-    color: #00bfff;       /* Vibrant teal/blue for visibility */
-    font-size: 1.2rem;    /* Slightly larger font */
-    font-weight: 600;     /* Bold for emphasis */
-  }
-  
-  /* Register Button */
-  .btn-register {
+    color: #00bfff; /* Vibrant teal/blue for visibility */
+    font-size: 1.2rem; /* Slightly larger font */
+    font-weight: 600; /* Bold for emphasis */
+}
+
+/* Register Button */
+.btn-register {
     background-color: #00aaff; /* Matches your brand color */
     color: #fff;
     padding: 0.6rem 1.2rem;
@@ -53,32 +58,43 @@
     border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 1rem;           /* Spacing above the button */
+    margin-top: 1rem; /* Spacing above the button */
     font-weight: 600;
-  }
-  
-  /* Hover & Disabled States */
-  .btn-register:hover {
+}
+
+/* Hover & Disabled States */
+.btn-register:hover {
     background-color: #007bbf;
     transform: translateY(-5px);
-  }
-  
-  .btn-register:disabled {
-    background-color: #aaa;      /* Grayed-out look */
+}
+
+.btn-register:disabled {
+    background-color: #aaa; /* Grayed-out look */
     cursor: not-allowed;
-    transform: none;            /* No hover lift for disabled buttons */
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
+    transform: none; /* No hover lift for disabled buttons */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .event-list {
-      flex-direction: column;
-      align-items: center;
+        flex-direction: column;
+        align-items: center;
     }
-  
+
     .event {
-      width: 80%;
-      margin: 1rem 0;
+        width: 80%;
+        margin: 1rem 0;
     }
-  }
-  
+}
+
+/* Keyframes for Scroll Fade-In Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
