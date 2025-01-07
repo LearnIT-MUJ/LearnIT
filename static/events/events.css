@@ -24,7 +24,23 @@
     opacity: 0; /* Start hidden for animation */
     transform: translateY(30px); /* Initial downward position */
     animation: fadeInUp 0.8s ease forwards; /* Fade-in animation */
+    animation-delay: var(--animation-delay); /* Delay for staggered effect */
 }
+
+/* Add this to the event list */
+.event:nth-child(1) {
+    --animation-delay: 0s;
+}
+.event:nth-child(2) {
+    --animation-delay: 0.3s;
+}
+.event:nth-child(3) {
+    --animation-delay: 0.6s;
+}
+.event:nth-child(4) {
+    --animation-delay: 0.9s;
+}
+/* Add more if there are more cards */
 
 /* Hover Effects */
 .event:hover {
