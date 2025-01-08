@@ -195,49 +195,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Carousel Caption */
-.carousel-caption {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 1rem;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    color: #fff;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    text-transform: uppercase;
-}
-
-/* Carousel Control Buttons */
-.carousel-control-prev,
-.carousel-control-next {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 50%;
-    padding: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-    background-color: #00aaff; /* CTA button color */
-}
-
-/* Mobile Carousel Adjustments */
-@media (max-width: 768px) {
-    .carousel-caption {
-        font-size: 1rem; /* Adjust font size for smaller screens */
-    }
-
-    .carousel-inner img {
-        height: auto;
-    }
-
-    #past-events-carousel {
-        max-width: 100%; /* Full width on mobile */
-    }
-}
-
-
 
 /* About Section */
 .section-about {
@@ -364,6 +321,51 @@ body {
       display: flex;
     }
 }
+
+
+/* Carousel Caption */
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: #fff;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: uppercase;
+}
+
+/* Carousel Control Buttons */
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #00aaff; /* CTA button color */
+}
+
+/* Mobile Carousel Adjustments */
+@media (max-width: 768px) {
+    .carousel-caption {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+
+    .carousel-inner img {
+        height: auto;
+    }
+
+    #past-events-carousel {
+        max-width: 100%; /* Full width on mobile */
+    }
+}
+
+
 
 
 /* .snowflake {
