@@ -15,10 +15,10 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="logo">
-        <img src="static/Logo.png" alt="LearnIT Logo" class="logo-img">
-        <h1 class="logo-text">
-            <span id="logo-typing">LearnIT</span>
-        </h1>
+            <img src="static/Logo.png" alt="LearnIT Logo" class="logo-img">
+            <h1 class="logo-text">
+                <span id="logo-typing">LearnIT</span>
+            </h1>
         </div>
     
         <!-- Hidden checkbox for toggle -->
@@ -26,9 +26,9 @@
     
         <!-- Label that becomes the "hamburger" icon -->
         <label for="nav-toggle" class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </label>
     
         <!-- Navigation Links -->
@@ -50,55 +50,57 @@
         </div>
     </section>
 
-    
-<!-- Carousel for past events -->
-    <section id="past-events-carousel">
-    <div id="pastEventsCarousel" class="carousel slide" data-bs-ride="carousel">
-        <!-- Indicators -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#pastEventsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#pastEventsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#pastEventsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <!-- Carousel for Past Events -->
+    <section id="past-events-carousel" class="my-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Past Events</h2>
+            <div id="pastEventsCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#pastEventsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#pastEventsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#pastEventsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <!-- Carousel Inner -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://via.placeholder.com/600x300" class="d-block w-100" alt="Event 1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Hackathon 2024</h5>
+                            <p>Compete in our 48-hour hackathon. Prizes and networking opportunities await!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/600x300" class="d-block w-100" alt="Event 2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Tech Talk Series</h5>
+                            <p>Industry experts share insights into the latest trends in AI, cloud computing, and more.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/600x300" class="d-block w-100" alt="Event 3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Cybersecurity Summit</h5>
+                            <p>Learn best practices and new developments in cybersecurity from top professionals.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#pastEventsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#pastEventsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
+    </section>
 
-        <!-- Carousel Inner -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://via.placeholder.com/400x200" class="d-block w-100" alt="Event 1">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5> Event 1:- Hackathon 2024 </h5>
-                    <p> Compete in our 48-hour hackathon. Prizes and networking opportunities await!  /p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://via.placeholder.com/400x200" class="d-block w-100" alt="Event 2">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5> Event 2:- Tech Talk Series </h5>
-                    <p> Industry experts share insights into the latest trends in AI, cloud computing, and more. </p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://via.placeholder.com/400x200" class="d-block w-100" alt="Event 3">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5> Event 3 Cybersecurity Summit </h5>
-                    <p> Learn best practices and new developments in cybersecurity from top professionals. </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#pastEventsCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#pastEventsCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</section>
-
-
+    <!-- About Section -->
     <section id="about" class="section-about">
         <div class="about-container">
             <h2 class="section-title">About Us</h2>
@@ -106,13 +108,14 @@
         </div>
     </section>
     
-
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 LearnIT Club. All Rights Reserved.</p>
     </footer>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>   <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS -->
 </body>
 </html>
