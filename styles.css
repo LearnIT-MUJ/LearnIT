@@ -267,7 +267,7 @@ body {
         padding: 2rem; /* Less padding on smaller screens */
     }
 }
-
+/* 
 /* -----------------------------------------------
    NEW MEDIA QUERY FOR HAMBURGER NAV TOGGLE
 ----------------------------------------------- */
@@ -300,3 +300,12 @@ body {
       display: flex;
     }
 }
+
+
+/* .snowflake {
+    position: absolute;
+    top: -10%;
+    color: white;
+    pointer-events: none;
+    animation: fall 10s linear infinite, sway 4s ease-in-out infinite;
+} */
