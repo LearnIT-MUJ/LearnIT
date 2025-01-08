@@ -176,22 +176,56 @@ body {
 }
 
 
-/* Past Events css */
-/* #past-events-carousel {
+/* Carousel Styles */
+#past-events-carousel {
     margin: 2rem auto;
-    max-width: 1200px; /* Adjust as needed 
+    max-width: 1200px; /* Adjust as needed */
+    border-radius: 15px;
 }
 
 .carousel-inner img {
-    border-radius: 10px; /* Add rounded corners to images 
+    border-radius: 10px; /* Add rounded corners to images */
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-inner img:hover {
+    transform: scale(1.05); /* Hover effect for carousel images */
 }
 
 .carousel-caption {
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background 
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
     padding: 1rem;
     border-radius: 5px;
+    font-size: 1.2rem;
+    color: #fff;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
- */
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #00aaff; /* Matching CTA button color */
+}
+
+/* Adjust Carousel controls for mobile */
+@media (max-width: 768px) {
+    .carousel-caption {
+        font-size: 1rem; /* Smaller text size for mobile */
+    }
+    .carousel-inner img {
+        height: auto;
+    }
+}
+
 
 /* About Section */
 .section-about {
