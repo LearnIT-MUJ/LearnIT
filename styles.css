@@ -177,21 +177,21 @@ body {
 
 
 /* Past Events css */
-#past-events-carousel {
+/* #past-events-carousel {
     margin: 2rem auto;
-    max-width: 1200px; /* Adjust as needed */
+    max-width: 1200px; /* Adjust as needed 
 }
 
 .carousel-inner img {
-    border-radius: 10px; /* Add rounded corners to images */
+    border-radius: 10px; /* Add rounded corners to images 
 }
 
 .carousel-caption {
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background 
     padding: 1rem;
     border-radius: 5px;
 }
-
+ */
 
 /* About Section */
 .section-about {
