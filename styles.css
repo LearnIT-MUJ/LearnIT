@@ -322,49 +322,38 @@ body {
     }
 }
 
+/* Ensure the slideshow container is properly sized */
+.slick-about {
+    max-width: 40%;  /* Reduce the width to 80% of the container */
+    margin: 0 auto;
+    padding: 10px;  /* Smaller padding for a more compact layout */
+}
 
-/* Carousel Caption */
-.carousel-caption {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 1rem;
-    border-radius: 5px;
-    font-size: 1.2rem;
+/* Style the images inside the slider */
+.slick-about img {
+    width: 100%;  /* Ensure the images fit the container */
+    height: auto;  /* Maintain the aspect ratio */
+    border-radius: 8px;  /* Smaller border-radius */
+}
+
+/* Optional: Customize the dots */
+.slick-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.slick-dots li button:before {
+    font-size: 12px;  /* Smaller dots */
     color: #fff;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    text-transform: uppercase;
 }
 
-/* Carousel Control Buttons */
-.carousel-control-prev,
-.carousel-control-next {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 50%;
-    padding: 10px;
-    transition: background-color 0.3s ease;
+.slick-prev, .slick-next {
+    color: #fff;
+    font-size: 18px;  /* Smaller arrow buttons */
+    z-index: 1;
 }
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-    background-color: #00aaff; /* CTA button color */
-}
-
-/* Mobile Carousel Adjustments */
-@media (max-width: 768px) {
-    .carousel-caption {
-        font-size: 1rem; /* Adjust font size for smaller screens */
-    }
-
-    .carousel-inner img {
-        height: auto;
-    }
-
-    #past-events-carousel {
-        max-width: 100%; /* Full width on mobile */
-    }
-}
-
 
 
 
