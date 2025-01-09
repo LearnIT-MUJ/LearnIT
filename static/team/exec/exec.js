@@ -8,7 +8,7 @@ const executiveData = [
     title: 'Captain:- Leading the voyage with big ideas and even bigger plans, meet Sana, our amazing President! 👑',
     role: 'President of LearnIT',
     Linkedin: 'https://www.linkedin.com/in/sana-singh-77b29b236/',
-    Instagram: 'https://instagram.com/sana_singh',  
+    Instagram: 'https://www.instagram.com/sana_singh_31?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',  
   },
   {
     image: 'https://via.placeholder.com/150',
@@ -16,7 +16,7 @@ const executiveData = [
     title: 'Chief Engineer:- Steering the tech engine of our ship with brilliance Yash is our tech wizard extraordinaire! 🛠️',
     role: 'Technical Secretary',
     Linkedin: 'https://www.linkedin.com/in/yash-kamra-a9aa73259/',
-    Instagram: 'https://instagram.com/yash_kamra',
+    Instagram: 'https://www.instagram.com/yashkamra11?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
   },
   {
     image: 'https://via.placeholder.com/150',
