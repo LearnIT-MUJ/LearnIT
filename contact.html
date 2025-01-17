@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .contact-section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .contact-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0056b3;
+        }
+        .contact-details, .contact-form {
+            margin-bottom: 20px;
+        }
+        .contact-details ul {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-details ul li {
+            margin: 10px 0;
+        }
+        .contact-details a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            padding: 10px;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .contact-form button:hover {
+            background-color: #003d82;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-section">
+        <h2>Contact Us</h2>
+
+        <div class="contact-details">
+            <h3>Get in Touch</h3>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:learnit@muj.manipal.edu">learnit@muj.manipal.edu</a></li>
+                <li><strong>Instagram:</strong> <a href="https://www.instagram.com/learnitmuj/" target="_blank">@learnitmuj</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/learnitmuj/" target="_blank">LearnIT MUJ</a></li>
+            </ul>
+        </div>
+
+        <div class="contact-details">
+            <h3>Club Faculty Coordinator</h3>
+            <ul>
+                <li><strong>Name:</strong> Dr. Shweta Sharma</li>
+                <li><strong>Contact No:</strong> <a href="tel:8239163927">8239163927</a></li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/dr-shweta-sharma-89020419b/" target="_blank">Dr. Shweta Sharma</a></li>
+            </ul>
+        </div>
+
+        <div class="contact-form">
+            <h3>Have a Query?</h3>
+            <form action="https://formspree.io/f/{YOUR_FORM_ID}" method="POST">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
