@@ -1,90 +1,92 @@
-/* Contact Section CSS */
-#contact {
-    padding: 50px 20px;
-    background-color: #f9f9f9;
-    color: #333;
+/* Contact Section */
+.section-contact {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 6rem 2rem;
     text-align: center;
 }
 
-#contact h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #004aad;
+.contact-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #00aaff;
 }
 
-.contact-details {
-    margin-bottom: 30px;
+.contact-description {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 3rem;
 }
 
-.contact-details p {
-    font-size: 18px;
-    margin: 10px 0;
-    line-height: 1.6;
+/* Flex container for contact cards */
+.contact-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
-.contact-details a {
-    color: #004aad;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.contact-details a:hover {
-    color: #005dc5;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: #004aad;
-    outline: none;
-}
-
-.contact-form button {
-    background-color: #004aad;
+/* Contact Card Styling */
+.contact-card {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
     color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+
+    /* FLEX APPROACH: Similar to Team Section */
+    flex: 1 1 280px;
+    max-width: 400px;
 }
 
-.contact-form button:hover {
-    background-color: #005dc5;
+/* Hover Effects */
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0, 183, 255, 0.6);
 }
 
-/* Social Links */
-.contact-social {
-    margin: 30px 0;
+/* Contact Card Body */
+.contact-card-body {
+    padding: 1.5rem;
 }
 
-.contact-social a {
-    display: inline-block;
-    margin: 0 10px;
-    font-size: 24px;
-    color: #333;
-    transition: color 0.3s;
+.contact-card-body h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
-.contact-social a:hover {
-    color: #004aad;
+.contact-card-body p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Social Links for Contact Section */
+.contact-social-links a {
+    font-size: 1.5rem;
+    color: #00ff7f;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+.contact-social-links a:hover {
+    color: #007bbf;
+}
+
+/* Responsive Design (Small Screens) */
+@media (max-width: 768px) {
+    .contact-cards-container {
+        flex-direction: column; /* stack cards */
+        align-items: center;
+    }
+
+    .contact-card {
+        width: 90%;  /* nearly full width on mobile */
+        flex: none;  /* disable flex shrink/grow on mobile */
+        max-width: 600px; /* optional max width on mobile */
+    }
+
+    .contact-social-links a {
+        font-size: 1.2rem; /* slightly smaller icons on mobile */
+    }
 }
