@@ -24,27 +24,31 @@ const executiveData = [
     title: 'Navigator:- Master of organization, charting the course to success, say hey to Vighnesh, our General Secretary! 🌟',
     role: 'General Secretary',
     Linkedin: 'https://www.linkedin.com/in/vighnesh-nikam-162371221/',
+    Instagram: 'https://www.instagram.com/im.vighnesh/?utm_source=ig_web_button_share_sheet',  
   },
   {
     image: 'https://via.placeholder.com/150',
-    name: 'Varshita',
+    name: 'Varshita Jain',
     title: 'Event Helmsman:- Guiding the ship through exciting adventures and celebrations, meet Varshita, our Head of Events! 🎉',
     role: 'Head of Events',
-    Linkedin: 'https://www.linkedin.com/in/varshita/',
+    Linkedin: 'https://www.linkedin.com/in/varshita-jain-35a735205/',
+    Instagram: 'https://www.instagram.com/varshi.hihihi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',  
   },
   {
     image: 'https://via.placeholder.com/150',
-    name: 'Baibhav',
+    name: 'Baibhav Kumar',
     title: 'Treasurer of the Ship’s Chest:- Keeping the ship’s finances afloat and the budget in check, shoutout to Baibhav! 💰',
     role: 'Treasurer',
     Linkedin: 'https://www.linkedin.com/in/baibhav-kumar-0b15a524a/',
+    Instagram: 'https://www.instagram.com/its_me_b___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',  
   },
   {
     image: 'https://via.placeholder.com/150',
     name: 'Ritik Laxwani',
     title: 'First Mate of Promotion:- Spreading the word and rallying the crew’s spirit, here’s Ritik, our promo genius! 📢',
     role: 'Head of Promotion',
-    Linkedin: 'https://www.linkedin.com/in/ritik-laxwani/',
+    Linkedin: 'https://www.linkedin.com/in/ritiklaxwani/',
+    Instagram: 'https://www.instagram.com/ritiklaxwani/?utm_source=ig_web_button_share_sheet',  
   },
   {
     image: 'https://via.placeholder.com/150',
@@ -52,6 +56,7 @@ const executiveData = [
     title: 'Sail Designer:- The artist who makes our sails vibrant and eye-catching, with Srishti as Head of Design! 🌈',
     role: 'Head of Design',
     Linkedin: 'https://www.linkedin.com/in/srishti-mahapatra-b54062246/',
+    Instagram: 'https://www.instagram.com/srishtimahapatra?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',  
   },
   {
     image: 'https://via.placeholder.com/150',
@@ -59,6 +64,7 @@ const executiveData = [
     title: 'Logkeeper:- Bringing our journey to life through words, meet Arav, the storyteller of the crew! 📰',
     role: 'Head of Content',
     Linkedin: 'https://www.linkedin.com/in/arav-kumar-18496824a/',
+    Instagram: 'https://www.instagram.com/aravv.kumar/?utm_source=ig_web_button_share_sheet',  
   },
 ];
 
