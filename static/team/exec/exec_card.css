@@ -1,0 +1,104 @@
+/* Team Section */
+.section-team {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #00aaff;
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 3rem;
+}
+
+/* Flex container for cards */
+.team-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Card Styling */
+.card {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    color: #fff;
+
+    /* FLEX APPROACH:
+       - flex: 1 1 280px -> card can shrink/grow, min width ~280px
+       - max-width: 400px -> optional limit to prevent overly wide cards 
+       - CAUTION WHEN MAKING CHANGES !!! */
+    flex: 1 1 280px;
+    max-width: 400px;
+}
+
+/* Hover Effects */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0, 183, 255, 0.6);
+}
+
+/* Image: full width, auto height to keep aspect ratio */
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    display: block; 
+}
+
+/* Card Body */
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-body h5 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-body p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Social Icons */
+.social-links a {
+    font-size: 1.5rem;
+    color: #00ff7f;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: #007bbf;
+}
+
+/* Responsive Design (Small Screens) */
+@media (max-width: 768px) {
+    .team-cards-container {
+        flex-direction: column; /* stack cards */
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;  /* nearly full width on mobile */
+        flex: none;  /* disable flex shrink/grow on mobile */
+        max-width: 600px; /* optional max width on mobile */
+    }
+
+    .social-links a {
+        font-size: 1.2rem; /* slightly smaller icons on mobile */
+    }
+}
