@@ -21,9 +21,6 @@
             </h1>
         </div>
     
-        <!-- Hidden checkbox for toggle -->
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    
         <!-- Label that becomes the "hamburger" icon -->
         <label for="nav-toggle" class="hamburger">
             <span></span>
@@ -41,14 +38,20 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section Split into Two Columns -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1 class="hero-title">Empowering the Innovators of Tomorrow</h1>
-            <p class="hero-description">Join LearnIT Club, where technology meets opportunity and creativity knows no bounds.</p>
+        <!-- Left content for text -->
+        <div class="hero-content-left">
+            <h1 class="hero-title">Welcome to the University Club</h1>
+            <p class="hero-description">Join us to explore, learn, and innovate with like-minded individuals.</p>
             <a href="#about" class="btn-main">Start Your Journey</a>
         </div>
+        
+        <!-- Right content for image -->
+        <div class="hero-content-right"></div>
     </section>
+
+
 
     <!-- About Section -->
     <section id="about" class="section-about">
@@ -64,6 +67,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="static\hero\slideshow.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -86,6 +90,13 @@
 
             // Start showing events one by one
             setTimeout(showNextEvent, interval);
+        });
+
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            easing: 'ease-out-back', // You can choose an easing function you prefer
+            duration: 1000, // Duration for animations to complete
+            once: true, // Whether the animation should happen only once (on scroll into view)
         });
     </script>
 </body>

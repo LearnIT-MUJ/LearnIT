@@ -20,35 +20,107 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
-    position: sticky;
+    padding: 0.1rem 2rem;  /* Reduced padding for compactness */
+    position: fixed;
     top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* Keep the navbar away from the edges */
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.7); 
-    backdrop-filter: blur(8px); 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
+    backdrop-filter: blur(15px); /* Apply blur effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Border for separation */
+    transition: background-color 0.3s ease; /* Smooth transition for background */
+    margin-top: 2rem; /* Separate navbar from top of the page */
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0.3);
 }
 
+/* On hover, the navbar background becomes slightly more opaque */
+.navbar:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Logo Styling */
 .navbar .logo {
     display: flex;
     align-items: center;
 }
 
 .navbar .logo-img {
-    height: 80px; 
-    width: auto;  
-    transition: transform 0.3s ease; 
+    height: 60px; /* Adjust logo size for a more compact look */
+    width: auto;
+    transition: transform 0.3s ease;
 }
 
 .navbar .logo-img:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
-/* Hide the checkbox by default */
-.nav-toggle {
-    display: none;
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    list-style: none;
 }
+
+.nav-links li {
+    margin-left: 1rem; /* Adjust spacing between links */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;  /* Adjust font size for compactness */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect on links */
+.nav-links a:hover {
+    color: #00aaff;
+}
+
+/* Call to Action (CTA) Button */
+.btn-cta {
+    background-color: #00aaff;
+    color: white;
+    padding: 0.4rem 0.8rem;  /* Reduced padding for compactness */
+    font-weight: 600;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-cta:hover {
+    background-color: #007bbf;
+    transform: translateY(-5px);
+}
+
+/* Responsive Design: Adjust for mobile */
+@media (max-width: 768px) {
+    .navbar {
+        width: 95%;  /* Slightly more width on mobile */
+        padding: 0.8rem 1.5rem;  /* Reduced padding on mobile */
+        background:rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-links li {
+        margin-left: 1rem;  /* Adjust spacing for smaller screens */
+    }
+
+    .navbar .logo-img {
+        height: 50px;  /* Smaller logo on mobile */
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;  /* Smaller font on mobile */
+    }
+
+    .btn-cta {
+        padding: 0.4rem 0.8rem;  /* Smaller button on mobile */
+    }
+}
+
+
 
 /* Hamburger Icon */
 .hamburger {
@@ -69,111 +141,114 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* Navigation Links */
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 2rem;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #00aaff;
-}
-
-/* CTA Button */
-.btn-cta {
-    background-color: #00aaff;
-    color: white;
-    padding: 0.6rem 1.2rem;
-    font-weight: 600;
-    border-radius: 30px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-cta:hover {
-    background-color: #007bbf;
-    transform: translateY(-5px); 
-}
-
 /* Hero Section */
 .hero {
-    height: 100vh;
-    background: url('https://source.unsplash.com/1600x900/?technology,innovation') no-repeat center center/cover;
-    background-attachment: fixed; 
+    display: flex; /* Create a two-column layout */
+    height: 80vh; /* Adjust the height of the section */
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
+    position: relative; /* To handle the absolute positioning of the background */
 }
 
 .hero-title {
-    font-size: 6vw;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    animation: fadeIn 2s ease-out;
-    letter-spacing: 2px; 
+    font-size: 4rem;  /* Larger font size for the title */
+    font-weight: 700;  /* Bold weight for better prominence */
+    margin-bottom: 20px;
+    text-transform: uppercase;  /* Uppercase letters */
+    letter-spacing: 2px;  /* Increase space between letters */
+    line-height: 1.2;  /* Better line spacing */
+    color: #fff;  /* White text color */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);  /* Subtle shadow for better contrast */
+    transition: color 0.3s ease, transform 0.3s ease;  /* Smooth transition for hover effects */
 }
 
 .hero-description {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0.8;
+    font-size: 1.5rem;  /* Larger font size for the description */
+    margin-bottom: 20px;
+    line-height: 1.6;  /* Line height for readability */
+    color: #ddd;  /* Light gray color for description text */
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);  /* Subtle shadow to enhance contrast */
 }
 
-.hero .btn-main {
+.btn-main {
+    padding: 1rem 2.5rem; /* Increased padding for better size */
     background-color: #00aaff;
     color: white;
-    padding: 0.7rem 2rem;
-    font-weight: 600;
-    font-size: 1.2rem;
-    border-radius: 30px;
+    font-weight: bold;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    border-radius: 50px; /* Rounded corners for a sleek look */
+    font-size: 1.1rem;  /* Adjusted font size */
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for smooth effects */
+    border: 2px solid #00aaff; /* Border to enhance button definition */
+    cursor: pointer;
 }
 
-.hero .btn-main:hover {
+.btn-main:hover {
     background-color: #007bbf;
+    transform: scale(1.05); /* Slight scale-up effect on hover */
+    box-shadow: 0 4px 12px rgba(0, 170, 255, 0.4); /* Subtle shadow on hover for depth */
+    border: 2px solid #007bbf; /* Change border color on hover */
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-30px); }
-    100% { opacity: 1; transform: translateY(0); }
+/* Add focus effect for accessibility */
+.btn-main:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.7); /* Focus effect for better visibility */
+}   
+/* Left Column (Text content) */
+.hero-content-left {
+    flex: 1; /* Takes up 50% of the width */
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center content */
+    text-align: left;
 }
 
+/* Right Column (Images or Background Slideshow) */
+.hero-content-right {
+    flex: 1; /* Takes up 50% of the width */
+    background-size: contain; /* Ensures the image fits entirely without cropping */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* No padding */
+    overflow: hidden; /* Prevents overflow */
+    background-image: url('images/Hero/IMG_0341-Enhanced-NR.webp'); /* Example image */
+}
+
+/* Responsive Design: Stack the columns on mobile */
 @media (max-width: 768px) {
-    .navbar .logo-img {
-        height: 50px; /* Adjust logo size on smaller screens */
+    .hero {
+        flex-direction: column; /* Stack the columns vertically on smaller screens */
+        height: auto; /* Adjust height for smaller screens */
+    }
+
+    .hero-content-left, .hero-content-right {
+        flex: none; /* Allow both to take full width on mobile */
+        width: 100%;
+        padding: 2rem;
     }
 
     .hero-title {
-        font-size: 8vw; /* Increase hero title size on mobile */
+        font-size: 2rem; /* Adjust title size for smaller screens */
     }
 
     .hero-description {
-        font-size: 1.2rem; /* Smaller text size for mobile */
+        font-size: 1rem; /* Adjust description size */
+    }
+
+    .btn-main {
+        font-size: 1rem; /* Adjust button size for smaller screens */
     }
 }
+
+
+
+
 
 /* Carousel Styles */
 #past-events-carousel {
