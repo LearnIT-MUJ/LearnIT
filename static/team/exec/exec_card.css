@@ -49,14 +49,24 @@
     box-shadow: 0 10px 40px rgba(0, 183, 255, 0.6);
 }
 
-/* Image: full width, auto height to keep aspect ratio */
-.card-img-top {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-    display: block; 
+.card-img-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  background-color: transparent; /* or use white/light-gray for clean look */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
 
 /* Card Body */
 .card-body {
