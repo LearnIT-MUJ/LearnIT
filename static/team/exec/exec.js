@@ -1,103 +1,137 @@
 console.log("exec.js is loaded");
 
-// JS for executive members' data
-const executiveData = [
+const teamData = [
   {
-    image: 'https://via.placeholder.com/150',
-    name: 'Sana Singh',
-    title: 'Captain:- Leading the voyage with big ideas and even bigger plans, meet Sana, our amazing President! 👑',
+    image: 'images/Team/Kartik_Gaur.webp',
+    name: 'Kartik Ratan Gaur',
+    title: 'Captain of Vision 🌟 – Steering LearnIT into uncharted innovation, guiding with wisdom and bold ideas.',
     role: 'President of LearnIT',
-    Linkedin: 'https://www.linkedin.com/in/sana-singh-77b29b236/',
-    Instagram: 'https://www.instagram.com/sana_singh_31?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',  
+    Linkedin: 'https://www.linkedin.com/in/kartikratangaur/',
+    Instagram: 'https://www.instagram.com/krg_824?igsh=cGE0MmltajZvODZq',
   },
   {
-    image: 'https://via.placeholder.com/150',
-    name: 'Yash Kamra',
-    title: 'Chief Engineer:- Steering the tech engine of our ship with brilliance Yash is our tech wizard extraordinaire! 🛠️',
-    role: 'Technical Secretary',
-    Linkedin: 'https://www.linkedin.com/in/yash-kamra-a9aa73259/',
-    Instagram: 'https://www.instagram.com/yashkamra11?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+    image: 'images/Team/Aditya_Saini.webp',
+    name: 'Aditya Saini',
+    title: 'Strategic Architect 🧠 – The silent force behind operations, transforming vision into structured action.',
+    role: 'Managing Director',
+    Linkedin: 'https://www.linkedin.com/in/aditya-saini-136041316',
+    Instagram: 'https://www.instagram.com/adityasankhlaa/profilecard/?igsh=Ynllb3NxbnFkeHpn',
   },
   {
-    image: 'https://via.placeholder.com/150',
-    name: 'Vighnesh Nikam',
-    title: 'Navigator:- Master of organization, charting the course to success, say hey to Vighnesh, our General Secretary! 🌟',
+    image: 'images/Team/Harshita_Rathor.webp',
+    name: 'Harshita Rathor',
+    title: 'Operations Commander 📋 – Organizing chaos into clarity, and fueling the ship’s momentum forward.',
     role: 'General Secretary',
-    Linkedin: 'https://www.linkedin.com/in/vighnesh-nikam-162371221/',
-    Instagram: 'https://www.instagram.com/im.vighnesh/?utm_source=ig_web_button_share_sheet',  
+    Linkedin: 'https://www.linkedin.com/in/harshita-rathor-258207302',
+    Instagram: 'https://www.instagram.com/hersheyy_ta?igsh=azVrNnoyeDJtd2hy',
   },
   {
-    image: 'https://via.placeholder.com/150',
-    name: 'Varshita Jain',
-    title: 'Event Helmsman:- Guiding the ship through exciting adventures and celebrations, meet Varshita, our Head of Events! 🎉',
-    role: 'Head of Events',
-    Linkedin: 'https://www.linkedin.com/in/varshita-jain-35a735205/',
-    Instagram: 'https://www.instagram.com/varshi.hihihi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',  
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Baibhav Kumar',
-    title: 'Treasurer of the Ship’s Chest:- Keeping the ship’s finances afloat and the budget in check, shoutout to Baibhav! 💰',
+    image: 'images/Team/Akash_Patel.webp',
+    name: 'Akash Patel',
+    title: 'Finance Anchor 💰 – Holding the club’s resources strong and steady through every financial storm.',
     role: 'Treasurer',
     Linkedin: 'https://www.linkedin.com/in/baibhav-kumar-0b15a524a/',
-    Instagram: 'https://www.instagram.com/its_me_b___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',  
+    Instagram: 'https://www.instagram.com/its_me_b___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
   },
   {
-    image: 'https://via.placeholder.com/150',
-    name: 'Ritik Laxwani',
-    title: 'First Mate of Promotion:- Spreading the word and rallying the crew’s spirit, here’s Ritik, our promo genius! 📢',
-    role: 'Head of Promotion',
-    Linkedin: 'https://www.linkedin.com/in/ritiklaxwani/',
-    Instagram: 'https://www.instagram.com/ritiklaxwani/?utm_source=ig_web_button_share_sheet',  
+    image: 'images/Team/Rishit_Kapoor.webp',
+    name: 'Rishit Kapoor',
+    title: 'Tech Pilot ⚙️ – Driving the engine room of development and innovation with passion and precision.',
+    role: 'Technical Secretary and Placement head',
+    Linkedin: 'https://www.linkedin.com/in/rishit-kapoor-33b2b81b0',
+    Instagram: 'https://www.instagram.com/rishitkapoor_28?igsh=bmlzMG9rcGZobXJl',
   },
   {
-    image: 'https://via.placeholder.com/150',
-    name: 'Srishti Mahapatra',
-    title: 'Sail Designer:- The artist who makes our sails vibrant and eye-catching, with Srishti as Head of Design! 🌈',
-    role: 'Head of Design',
-    Linkedin: 'https://www.linkedin.com/in/srishti-mahapatra-b54062246/',
-    Instagram: 'https://www.instagram.com/srishtimahapatra?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',  
+    image: 'images/Team/Kashyap_Paraser.webp',
+    name: 'Kashyap Paraser',
+    title: 'Celebration Navigator 🎊 – Crafting unforgettable journeys through events that spark excitement.',
+    role: 'Head of Events',
+    Linkedin: 'https://www.linkedin.com/in/kashyap-paraser-7024aa22b',
+    Instagram: 'https://www.instagram.com/__kashyapp_/',
   },
   {
-    image: 'https://via.placeholder.com/150',
-    name: 'Arav Kumar',
-    title: 'Logkeeper:- Bringing our journey to life through words, meet Arav, the storyteller of the crew! 📰',
+    image: 'images/Team/Karen_Sylvia.webp',
+    name: 'Karen Sylvia',
+    title: 'Wordsmith-in-Chief ✍️ – Weaving words into wonder, curating stories that connect and inspire.',
     role: 'Head of Content',
-    Linkedin: 'https://www.linkedin.com/in/arav-kumar-18496824a/',
-    Instagram: 'https://www.instagram.com/aravv.kumar/?utm_source=ig_web_button_share_sheet',  
+    Linkedin: 'https://www.linkedin.com/in/karen-sylvia-vasmalla-7066b6287',
+  },
+  {
+    image: 'images/Team/Abhinav_Awasthi.webp',
+    name: 'Abhinav Awasthi',
+    title: 'Design Sorcerer 🎨 – Breathing magic into every pixel, making ideas visually unforgettable.',
+    role: 'Joint Head of Graphic Design',
+    Linkedin: 'https://www.linkedin.com/in/srishti-mahapatra-b54062246/',
+    Instagram: 'https://www.instagram.com/srishtimahapatra?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+  },
+  {
+    image: 'images/Team/Nishant.webp',
+    name: 'Nishant',
+    title: 'Visual Artisan 🖌️ – Turning blank canvases into stories, crafting the soul of our identity.',
+    role: 'Joint Head of Graphic Design',
+    Linkedin: 'https://www.linkedin.com/in/blabhardwaj',
+    Instagram: 'https://www.instagram.com/ne.shant?igsh=MXdrZGZvY2JndXRhZA==',
+  },
+  {
+    image: 'images/Team/Akshat_Bisht.webp',
+    name: 'Akshat Bisht',
+    title: 'Code Captain 💻 – Architect of the digital seas, building the backbone of LearnIT’s presence.',
+    role: 'Head of Web Development',
+    Linkedin: 'https://www.linkedin.com/in/akshat-bisht-586727161/',
+    Instagram: 'https://www.instagram.com/akshatbi/',
+  },
+  {
+    image: 'images/Team/Rajeev_Singh.webp',
+    name: 'Rajeev Singh',
+    title: 'Media Maestro 📸 – Capturing moments and painting stories through the lens of LearnIT.',
+    role: 'Head of Media',
+    Linkedin: 'https://www.linkedin.com/in/rajeev-singh-8687232a4/',
+    Instagram: 'https://www.instagram.com/rajeev_singh_177?igsh=OHZxM2szY3NwMjY4',
+  },
+  {
+    image: 'images/Team/Naveen_Kumar.webp',
+    name: 'Naveen Kumar',
+    title: 'Outreach Specialist 🚀 – Amplifying our message and connecting LearnIT to new horizons.',
+    role: 'Head of Promotions',
+    Linkedin: 'https://www.linkedin.com/in/naveen-kumar-8434092a2',
+    Instagram: 'https://www.instagram.com/naveeendhankhar?igsh=MWxxZnNhcnloOXBscw==',
   },
 ];
+
 
 // Function to create and display team member cards
 function createTeamCards() {
   const teamContainer = document.getElementById('team-cards');
 
-  executiveData.forEach((executive, index) => {
+  teamData.forEach((team, index) => {
     let socialLinks = '';
 
     // Validate and add social media links dynamically
     // Check for Linkedin
-    if (executive.Linkedin) {
-      socialLinks += `<a href="${executive.Linkedin}" target="_blank"><i class="fab fa-linkedin"></i></a>`;
+    if (team.Linkedin) {
+      socialLinks += `<a href="${team.Linkedin}" target="_blank"><i class="fab fa-linkedin"></i></a>`;
     }
     // Check for Instagram
-    if (executive.Instagram) {
-      socialLinks += `<a href="${executive.Instagram}" target="_blank"><i class="fab fa-instagram"></i></a>`;
+    if (team.Instagram) {
+      socialLinks += `<a href="${team.Instagram}" target="_blank"><i class="fab fa-instagram"></i></a>`;
     }
 
     const cardHTML = `
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="${index * 100}">
         <div class="card">
-          <img class="card-img-top" src="${executive.image}" alt="${executive.name}">
+          <div class="card-img-wrapper">
+            <img class="card-img-top" src="${team.image}" alt="${team.name}">
+          </div>
           <div class="card-body">
-            <h5>${executive.name}</h5>
-            <p>${executive.title}</p>
-            <p>${executive.role}</p>
+            <h5>${team.name}</h5>
+            <p>${team.title}</p>
+            <p>${team.role}</p>
             <div class="social-links">${socialLinks}</div>
           </div>
         </div>
       </div>
     `;
+
     teamContainer.insertAdjacentHTML('beforeend', cardHTML);
   });
 
