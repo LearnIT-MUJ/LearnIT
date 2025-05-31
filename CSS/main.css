@@ -1,0 +1,119 @@
+/* All the CSS styles for the application */
+
+@import url('reset.css');
+
+/* General styles */
+
+@import url('navbar.css');
+@import url('hero.css');
+@import url('about.css');
+@import url('event.css');
+@import url('team.css');
+@import url('footer.css');
+
+ @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+
+    @keyframes glow {
+        0%, 100% { box-shadow: 0 0 5px #00aaff, 0 0 10px #00aaff, 0 0 15px #00aaff; }
+        50% { box-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff, 0 0 30px #00aaff; }
+    }
+
+    @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-100px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(100px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hero-wrapper {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .hero-content-left,
+  .hero-content-right {
+    min-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .events-grid,
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-container {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
