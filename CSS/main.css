@@ -8,7 +8,7 @@
 @import url('team.css');
 @import url('footer.css');
 
-/* Animations */
+/*Animation Keyframes*/
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
@@ -39,7 +39,7 @@
   50% { transform: scale(1.05); }
 }
 
-/* Hero Section Visual */
+/*Hero Section */
 .hero-content-right {
   flex: 1;
   min-height: 400px;
@@ -77,6 +77,32 @@
   height: 100%;
   object-fit: contain;
 }
+
+/*CTA Button*/
+.btn-cta {
+  background: linear-gradient(135deg, #00aaff, #0077ff);
+  color: #fff;
+  padding: 0.55rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  margin-left: 1rem;
+  border: none; /* No border */
+  box-shadow: none; /* Removed glow */
+}
+
+.btn-cta:hover {
+  background: linear-gradient(135deg, #0077ff, #00aaff);
+  transform: scale(1.05);
+  box-shadow: none; 
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -117,6 +143,12 @@
 
   .hero-visual {
     max-width: 300px;
+  }
+
+  .btn-cta {
+    align-self: center;
+    margin-left: 0;
+    margin-top: 1rem;
   }
 
   .hero-title {
