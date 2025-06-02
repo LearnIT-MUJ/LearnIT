@@ -42,6 +42,14 @@ const teamData = [
     Instagram: 'https://www.instagram.com/rishitkapoor_28?igsh=bmlzMG9rcGZobXJl',
   },
   {
+    image: 'images/Team/Akshat_Bisht.webp',
+    name: 'Akshat Bisht',
+    title: 'Code Captain 💻 – Architect of the digital seas, building the backbone of LearnIT’s presence.',
+    role: 'Head of Web Development',
+    Linkedin: 'https://www.linkedin.com/in/akshat-bisht-586727161/',
+    Instagram: 'https://www.instagram.com/akshatbi/',
+  },
+  {
     image: 'images/Team/Kashyap_Paraser.webp',
     name: 'Kashyap Paraser',
     title: 'Celebration Navigator 🎊 – Crafting unforgettable journeys through events that spark excitement.',
@@ -71,14 +79,6 @@ const teamData = [
     role: 'Joint Head of Graphic Design',
     Linkedin: 'https://www.linkedin.com/in/blabhardwaj',
     Instagram: 'https://www.instagram.com/ne.shant?igsh=MXdrZGZvY2JndXRhZA==',
-  },
-  {
-    image: 'images/Team/Akshat_Bisht.webp',
-    name: 'Akshat Bisht',
-    title: 'Code Captain 💻 – Architect of the digital seas, building the backbone of LearnIT’s presence.',
-    role: 'Head of Web Development',
-    Linkedin: 'https://www.linkedin.com/in/akshat-bisht-586727161/',
-    Instagram: 'https://www.instagram.com/akshatbi/',
   },
   {
     image: 'images/Team/Rajeev_Singh.webp',
