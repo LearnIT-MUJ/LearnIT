@@ -1,4 +1,3 @@
-// Load navbar.html into the placeholder div
 fetch("components/navbar.html")
   .then(res => {
     if (!res.ok) {
@@ -7,16 +6,25 @@ fetch("components/navbar.html")
     return res.text();
   })
   .then(data => {
-    // Inject HTML into the placeholder
-    document.getElementById("navbar-placeholder").innerHTML = data;
+    // Inject navbar HTML
+    const placeholder = document.getElementById("navbar-placeholder");
+    placeholder.innerHTML = data;
 
-    // Query after DOM injection
+    // Inject navbar-specific CSS if not already present
+    if (!document.getElementById("navbar-css")) {
+      const link = document.createElement("link");
+      link.id = "navbar-css";
+      link.rel = "stylesheet";
+      link.href = "CSS/navbar.css"; // Update this path if different
+      document.head.appendChild(link);
+    }
+
+    // Query navbar elements after injection
     const hamburger = document.getElementById("hamburger");
     const mobileMenu = document.getElementById("mobileMenu");
     const navLinks = mobileMenu?.querySelectorAll("a");
 
     if (hamburger && mobileMenu) {
-      // Toggle hamburger and mobile menu
       hamburger.addEventListener("click", () => {
         const isActive = hamburger.classList.toggle("active");
         mobileMenu.classList.toggle("active");
@@ -24,7 +32,6 @@ fetch("components/navbar.html")
         hamburger.setAttribute("aria-expanded", isActive.toString());
       });
 
-      // Close menu on nav link click (for better UX)
       navLinks?.forEach(link => {
         link.addEventListener("click", () => {
           hamburger.classList.remove("active");
