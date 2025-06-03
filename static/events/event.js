@@ -1,38 +1,38 @@
 // Sample events data
-// const eventsData = [
-//   {
-//     title: "AI & Machine Learning",
-//     startDate: "2025-02-16T09:00:00",  // When the event starts
-//     endDate: "2025-02-16T18:00:00",    // When the event ends
-//     regEndDate: "2025-02-10T23:59:59", // Last date/time to register
-//     description: "Learn the fundamentals of AI in our hands-on workshop. Suitable for beginners.",
-//     image: "https://via.placeholder.com/400x200", // Updated Placeholder
-//   },
-//   {
-//     title: "Hackathon 2024",
-//     startDate: "2024-02-10T08:00:00",
-//     endDate: "2024-02-12T08:00:00",
-//     regEndDate: "2024-02-05T23:59:59",
-//     description: "Compete in our 48-hour hackathon. Prizes and networking opportunities await!",
-//     image: "https://via.placeholder.com/400x200", 
-//   },
-//   {
-//     title: "Tech Talk Series",
-//     startDate: "2024-03-05T10:00:00",
-//     endDate: "2024-03-05T12:00:00",
-//     regEndDate: "2024-02-28T23:59:59",
-//     description: "Industry experts share insights into the latest trends in AI, cloud computing, and more.",
-//     image: "https://via.placeholder.com/400x200", 
-//   },
-//   {
-//     title: "Cybersecurity Summit",
-//     startDate: "2023-12-20T10:00:00",
-//     endDate: "2023-12-20T17:00:00",
-//     regEndDate: "2023-12-15T23:59:59",
-//     description: "Learn best practices and new developments in cybersecurity from top professionals.",
-//     image: "https://via.placeholder.com/400x200", 
-//   },
-// ];
+const eventsData = [
+  {
+    title: "AI & Machine Learning",
+    startDate: "2025-02-16T09:00:00",  // When the event starts
+    endDate: "2025-02-16T18:00:00",    // When the event ends
+    regEndDate: "2025-02-10T23:59:59", // Last date/time to register
+    description: "Learn the fundamentals of AI in our hands-on workshop. Suitable for beginners.",
+    image: "https://via.placeholder.com/400x200", // Updated Placeholder
+  },
+  {
+    title: "Hackathon 2024",
+    startDate: "2024-02-10T08:00:00",
+    endDate: "2024-02-12T08:00:00",
+    regEndDate: "2024-02-05T23:59:59",
+    description: "Compete in our 48-hour hackathon. Prizes and networking opportunities await!",
+    image: "https://via.placeholder.com/400x200", 
+  },
+  {
+    title: "Tech Talk Series",
+    startDate: "2024-03-05T10:00:00",
+    endDate: "2024-03-05T12:00:00",
+    regEndDate: "2024-02-28T23:59:59",
+    description: "Industry experts share insights into the latest trends in AI, cloud computing, and more.",
+    image: "https://via.placeholder.com/400x200", 
+  },
+  {
+    title: "Cybersecurity Summit",
+    startDate: "2023-12-20T10:00:00",
+    endDate: "2023-12-20T17:00:00",
+    regEndDate: "2023-12-15T23:59:59",
+    description: "Learn best practices and new developments in cybersecurity from top professionals.",
+    image: "https://via.placeholder.com/400x200", 
+  },
+];
 
 // Wait until DOM is loaded to manipulate elements
 document.addEventListener("DOMContentLoaded", () => {
