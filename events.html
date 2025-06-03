@@ -6,21 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LearnIT Club</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static/events/events.css">
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="static/events/events.css"> -->
+    <link rel="stylesheet" href="CSS/upcomingEvent.css">
+    <link rel="stylesheet" href="CSS/main.css">
     
 </head>
 <body>
 
     <!-- Navigation -->
     <div id="navbar-placeholder"></div>
+    
+    <!-- Floating Particles Container -->
+    <div class="floating-particles" id="particles-container"></div>
 
     <!-- Events Section -->
     <section id="events" class="section-events">
+        
         <div class="container">
             <h2 class="section-title">Upcoming Events</h2>
             <div class="event-list">
-                <!--Dynamic Generated cards-->
+                <!-- Dynamic event cards will be populated here by JavaScript -->
             </div>
         </div>
     </section>
@@ -50,8 +55,9 @@
     <!-- Include slick slider script -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="script.js"></script>
-    <script src="static/events/event.js"></script>
-    <script src="static/events/carousel.js"></script>
+    <script src="upcomingEvents.js"></script>
+    <!-- <script src="static/events/event.js"></script> -->
+    <!-- <script src="static/events/carousel.js"></script> -->
     <script src="components/scripts/navbar.js"></script>
 
 </body>
