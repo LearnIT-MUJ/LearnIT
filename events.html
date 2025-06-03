@@ -1,64 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LearnIT Club</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="static/events/events.css"> -->
-    <link rel="stylesheet" href="CSS/upcomingEvent.css">
-    <link rel="stylesheet" href="CSS/main.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>LearnIT Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/upcomingEvent.css">
+  <link rel="stylesheet" href="CSS/main.css">
+  <style>
+    /* Section title spacing fix */
+    .section-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 80px; /* Increased spacing */
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8, #1e40af);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease-out 0.3s forwards;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Add margin-top to separate content from heading */
+    .event-list,
+    .slick-about {
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <div id="navbar-placeholder"></div>
-    
-    <!-- Floating Particles Container -->
-    <div class="floating-particles" id="particles-container"></div>
+  <!-- Navigation -->
+  <div id="navbar-placeholder"></div>
 
-    <!-- Events Section -->
-    <section id="events" class="section-events">
-        
-        <div class="container">
-            <h2 class="section-title">Upcoming Events</h2>
-            <div class="event-list">
-                <!-- Dynamic event cards will be populated here by JavaScript -->
-            </div>
-        </div>
-    </section>
-    
-    <!-- Past Events Section -->
-    <section id="events" class="section-events">
-        <div class="container">
-            <h2 class="section-title">Past Events</h2>
-            <div class="slick-about">
-                <!-- Dynamic Image Carousel will be populated here -->
-            </div>
-        </div>
-    </section>
+  <!-- Floating Particles Container -->
+  <div class="floating-particles" id="particles-container"></div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 LearnIT Club. All Rights Reserved.</p>
-    </footer>
-    <!--Scripts-->
-    <!-- Include jQuery (required for slick.js) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Upcoming Events Section -->
+  <section class="section-events">
+    <div class="container">
+      <h2 class="section-title">Upcoming Events</h2>
+      <div class="event-list">
+        <!-- Dynamic event cards will be populated here by JavaScript -->
+      </div>
+    </div>
+  </section>
 
-    <!-- Include slick slider styles -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <!-- Past Events Section -->
+  <section class="section-events">
+    <div class="container">
+      <h2 class="section-title">Past Events</h2>
+      <div class="slick-about">
+        <!-- Dynamic Image Carousel will be populated here -->
+      </div>
+    </div>
+  </section>
 
-    <!-- Include slick slider script -->
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="script.js"></script>
-    <script src="upcomingEvents.js"></script>
-    <!-- <script src="static/events/event.js"></script> -->
-    <!-- <script src="static/events/carousel.js"></script> -->
-    <script src="components/scripts/navbar.js"></script>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 LearnIT Club. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="script.js"></script>
+  <script src="upcomingEvents.js"></script>
+  <script src="components/scripts/navbar.js"></script>
 
 </body>
 </html>
