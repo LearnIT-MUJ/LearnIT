@@ -1,30 +1,19 @@
-
-// Global variable to store past events data
 let pastEventsData = [];
 
-/**
- * Fetch past events data from JSON file using async/await
- */
 async function loadPastEventsData() {
     try {
-        const response = await fetch('pastEvents.json'); // Adjust path if needed
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error loading past events data:', error);
-        // Return fallback data or empty array
+        const res = await fetch('pastEvents.json');
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return await res.json();
+    } catch (err) {
+        console.error('Error loading past events:', err);
         return [];
     }
 }
 
-// Main initialization using async/await
 document.addEventListener("DOMContentLoaded", async () => {
-    // Show loading state
-    const eventListContainer = document.querySelector(".event-list");
-    eventListContainer.innerHTML = `
+    const container = document.querySelector(".past-events");
+    container.innerHTML = `
       <div class="no-events">
         <div class="loading"></div>
         <h3>Loading Past Events...</h3>
@@ -33,161 +22,82 @@ document.addEventListener("DOMContentLoaded", async () => {
     `;
 
     try {
-        // Load past events data using async/await
         pastEventsData = await loadPastEventsData();
-
-        // Create past event cards with loaded data
         await createPastEventCards();
-    } catch (error) {
-        console.error('Failed to initialize past events:', error);
-        eventListContainer.innerHTML = `
+    } catch (err) {
+        console.error('Failed to init past events:', err);
+        container.innerHTML = `
         <div class="no-events">
           <h3>Failed to Load Past Events</h3>
-          <p>Please check your connection and try again.</p>
-        </div>
-      `;
+          <p>Please try again later.</p>
+        </div>`;
     }
 });
 
-/**
- * Dynamically create past event cards and insert them into .event-list
- */
 async function createPastEventCards() {
-    const eventListContainer = document.querySelector(".event-list");
-    eventListContainer.innerHTML = "";
+    const container = document.querySelector(".past-events");
+    container.innerHTML = "";
 
-    // Sort events by date (most recent first)
-    const sortedEvents = pastEventsData.sort((a, b) =>
-        new Date(b.endDate) - new Date(a.endDate)
-    );
+    const sorted = pastEventsData
+        .filter(e => new Date(e.endDate) < new Date())
+        .sort((a, b) => new Date(b.endDate) - new Date(a.endDate));
 
-    if (sortedEvents.length === 0) {
-        eventListContainer.innerHTML = `
-        <div class="no-events">
-          <h3>No Past Events Found</h3>
-          <p>Check back later for event history.</p>
-        </div>
-      `;
+    if (sorted.length === 0) {
+        container.innerHTML = `<div class="no-events"><h3>No Past Events Found</h3><p>Check back later!</p></div>`;
         return;
     }
 
-    sortedEvents.forEach((event, index) => {
-        const detailsBtnId = `details-btn-${index}`;
-
-        // Build the event card HTML
-        const eventHTML = `
+    sorted.forEach((event, i) => {
+        const btnId = `past-btn-${i}`;
+        container.insertAdjacentHTML("beforeend", `
         <div class="event">
-          <!-- Event image -->
-          <img 
-            src="${event.image}" 
-            alt="${event.title} Image" 
-            class="event-img"
-            onerror="this.src='https://via.placeholder.com/400x200/6060d4/ffffff?text=Past+Event'"
-          />
-          
+          <img src="${event.image}" alt="${event.title}" class="event-img"
+               onerror="this.src='https://via.placeholder.com/400x200/1e40af/ffffff?text=Past+Event'" />
+
           <h3 class="event-title">${event.title}</h3>
           <p class="event-description">${event.description}</p>
-          
-          <p class="event-date"><strong>Date:</strong> ${formatEventDateOnly(event.startDate)}</p>
-          
-          <div class="event-participants">
-            <span class="participants-icon">👥</span>
-            <span>${event.attendees} Participants</span>
+
+          <p class="event-date"><strong>Event Date:</strong> ${formatDateOnly(event.startDate)}</p>
+
+          <div class="registration-dates">
+            <p><strong>Duration:</strong> ${formatDateOnly(event.startDate)} - ${formatDateOnly(event.endDate)}</p>
           </div>
-          
-          <!-- View details button with Google Drive redirect -->
-          <button 
-            id="${detailsBtnId}" 
-            class="btn-view-details" 
-            data-pdf-url="${event.pdfUrl || ''}"
-          >
+
+          <div class="event-participants">
+            👥 ${event.attendees} Participants
+          </div>
+
+          <button id="${btnId}" class="btn-view-details" data-pdf-url="${event.pdfUrl || ''}">
             View Event Summary
           </button>
         </div>
-      `;
+        `);
 
-        eventListContainer.insertAdjacentHTML("beforeend", eventHTML);
-
-        // Add click handler for details button (redirects to Google Drive PDF preview)
-        const detailsBtn = document.getElementById(detailsBtnId);
-        detailsBtn.addEventListener('click', function () {
-            const pdfUrl = this.getAttribute('data-pdf-url');
-
-            if (pdfUrl) {
-                // Open Google Drive PDF preview in new tab
-                window.open(pdfUrl, '_blank');
-            } else {
-                console.error('PDF URL not found for this event');
-                alert('Event summary not available.');
-            }
+        document.getElementById(btnId).addEventListener("click", function () {
+            const url = this.getAttribute("data-pdf-url");
+            if (url) window.open(url, '_blank');
+            else alert('Event summary not available.');
         });
     });
 }
 
-/**
- * Utility: Format date string to show only date without time
- */
-function formatEventDateOnly(dateStr) {
-    const dateObj = new Date(dateStr);
-    return dateObj.toLocaleDateString([], {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
+function formatDateOnly(dateStr) {
+    return new Date(dateStr).toLocaleDateString([], {
+        year: "numeric", month: "long", day: "numeric"
     });
 }
 
-/**
- * Optional: Refresh past events data periodically
- */
+setInterval(refreshPastEventsData, 10 * 60 * 1000);
+
 async function refreshPastEventsData() {
     try {
-        const newPastEventsData = await loadPastEventsData();
-        if (newPastEventsData.length > 0) {
-            pastEventsData = newPastEventsData;
+        const newData = await loadPastEventsData();
+        if (newData.length > 0) {
+            pastEventsData = newData;
             await createPastEventCards();
-            console.log('Past events data refreshed successfully');
+            console.log("Past events refreshed");
         }
-    } catch (error) {
-        console.error('Failed to refresh past events data:', error);
+    } catch (err) {
+        console.error("Failed to refresh past events", err);
     }
 }
-
-/**
- * Optional: Search/Filter functionality for past events
- */
-function filterPastEvents(searchTerm) {
-    const filteredEvents = pastEventsData.filter(event =>
-        event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.description.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    // Re-render with filtered data
-    renderFilteredEvents(filteredEvents);
-}
-
-/**
- * Render filtered events
- */
-function renderFilteredEvents(events) {
-    const eventListContainer = document.querySelector(".event-list");
-    eventListContainer.innerHTML = "";
-
-    if (events.length === 0) {
-        eventListContainer.innerHTML = `
-        <div class="no-events">
-          <h3>No Events Found</h3>
-          <p>Try adjusting your search criteria.</p>
-        </div>
-      `;
-        return;
-    }
-
-    // Use the same rendering logic as createPastEventCards but with filtered data
-    events.forEach((event, index) => {
-        const detailsBtnId = `filtered-details-btn-${index}`;
-        // ... same HTML generation logic as in createPastEventCards
-    });
-}
-
-// Optional: Refresh past events every 10 minutes
-setInterval(refreshPastEventsData, 10 * 60 * 1000);

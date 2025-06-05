@@ -1,17 +1,16 @@
 :root {
-  /* Color palette from uploaded image */
-  --color-primary-dark: #0f0f23; /* Darkest navy/black */
-  --color-primary: #1a1a4d; /* Deep blue */
-  --color-primary-medium: #2d2d7a; /* Medium blue */
-  --color-primary-light: #4040a7; /* Light blue */
-  --color-accent: #6060d4; /* Purple accent */
-  --color-accent-light: #8080e1; /* Light purple */
-  --color-background: #000000; /* Black background */
-  --color-surface: #1a1a2e; /* Card surface */
-  --color-text-primary: #ffffff; /* Primary text */
-  --color-text-secondary: #b0b0c0; /* Secondary text */
-  --color-text-muted: #808090; /* Muted text */
-  --color-border: #2d2d4a; /* Border */
+  --color-primary-dark: #0f0f23;
+  --color-primary: #1a1a4d;
+  --color-primary-medium: #2d2d7a;
+  --color-primary-light: #4040a7;
+  --color-accent: #6060d4;
+  --color-accent-light: #8080e1;
+  --color-background: #000000;
+  --color-surface: #1a1a2e;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b0b0c0;
+  --color-text-muted: #808090;
+  --color-border: #2d2d4a;
 }
 
 * {
@@ -21,8 +20,7 @@
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background: var(--color-background);
   color: var(--color-text-primary);
   line-height: 1.6;
@@ -49,11 +47,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(64, 64, 167, 0.1) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(ellipse at center, rgba(64, 64, 167, 0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -62,11 +56,7 @@ body {
   font-weight: 700;
   text-align: center;
   margin-bottom: 60px;
-  background: linear-gradient(
-    135deg,
-    var(--color-accent) 0%,
-    var(--color-accent-light) 100%
-  );
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -75,19 +65,18 @@ body {
   animation: fadeInUp 1s ease-out 0.3s forwards;
 }
 
-.event-list {
+/* Shared Grid Layout for Event Cards */
+.event-list,
+.past-events {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   margin-top: 40px;
 }
 
+/* Card Design */
 .event {
-  background: linear-gradient(
-    145deg,
-    var(--color-surface),
-    rgba(26, 26, 46, 0.8)
-  );
+  background: linear-gradient(145deg, var(--color-surface), rgba(26, 26, 46, 0.8));
   border: 2px solid var(--color-border);
   border-radius: 16px;
   padding: 28px;
@@ -100,18 +89,10 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.event:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.event:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.event:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.event:nth-child(4) {
-  animation-delay: 0.4s;
-}
+.event:nth-child(1) { animation-delay: 0.1s; }
+.event:nth-child(2) { animation-delay: 0.2s; }
+.event:nth-child(3) { animation-delay: 0.3s; }
+.event:nth-child(4) { animation-delay: 0.4s; }
 
 .event::before {
   content: "";
@@ -120,12 +101,7 @@ body {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(
-    90deg,
-    var(--color-primary) 0%,
-    var(--color-primary-medium) 50%,
-    var(--color-accent) 100%
-  );
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-medium) 50%, var(--color-accent) 100%);
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -138,6 +114,22 @@ body {
   transform: translateY(-8px);
   border-color: var(--color-accent);
   box-shadow: 0 12px 40px rgba(64, 64, 167, 0.2);
+}
+
+.event::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.event:hover::after {
+  width: 80%;
 }
 
 .event-img {
@@ -177,6 +169,12 @@ body {
   font-weight: 600;
 }
 
+.registration-dates {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
 .event-participants {
   color: var(--color-text-secondary);
   margin-bottom: 20px;
@@ -192,60 +190,60 @@ body {
   color: var(--color-accent);
 }
 
-.btn-view-details {
+/* Button Design */
+.btn-view-details,
+.btn-register,
+.btn-disabled {
   width: 100%;
   padding: 16px 20px;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary) 0%,
-    var(--color-primary-medium) 100%
-  );
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-medium) 100%);
   color: white;
   border: none;
   border-radius: 12px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   margin-top: 20px;
   position: relative;
   overflow: hidden;
 }
 
-.btn-view-details::before {
+.btn-disabled {
+  background: #444;
+  cursor: not-allowed;
+}
+
+.btn-view-details::before,
+.btn-register::before {
   content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.6s ease;
 }
 
-.btn-view-details:hover::before {
+.btn-view-details:hover::before,
+.btn-register:hover::before {
   left: 100%;
 }
 
-.btn-view-details:hover {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-medium) 0%,
-    var(--color-accent) 100%
-  );
+.btn-view-details:hover,
+.btn-register:hover {
+  background: linear-gradient(135deg, var(--color-primary-medium) 0%, var(--color-accent) 100%);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(64, 64, 167, 0.3);
 }
 
-.btn-view-details:active {
+.btn-view-details:active,
+.btn-register:active {
   transform: translateY(0);
 }
 
+/* No Events Message */
 .no-events {
   text-align: center;
   padding: 60px 20px;
@@ -268,6 +266,7 @@ body {
   animation: spin 1s linear infinite;
 }
 
+/* Animations */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -294,7 +293,8 @@ body {
     padding: 0 16px;
   }
 
-  .event-list {
+  .event-list,
+  .past-events {
     grid-template-columns: 1fr;
     gap: 24px;
   }
@@ -312,45 +312,13 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--color-background);
 }
-
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-medium) 0%,
-    var(--color-accent) 100%
-  );
+  background: linear-gradient(135deg, var(--color-primary-medium) 0%, var(--color-accent) 100%);
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    135deg,
-    var(--color-accent) 0%,
-    var(--color-accent-light) 100%
-  );
-}
-
-/* Enhanced visual elements */
-.event::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    var(--color-accent) 0%,
-    var(--color-accent-light) 100%
-  );
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-}
-
-.event:hover::after {
-  width: 80%;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
 }

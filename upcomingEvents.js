@@ -1,4 +1,3 @@
-
 // Global variable to store events data
 let eventsData = [];
 
@@ -7,22 +6,15 @@ let eventsData = [];
  */
 async function loadEventsData() {
     try {
-        const response = await fetch('upcomingEvents.json'); // Adjust path if needed
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data;
+        const response = await fetch('upcomingEvents.json');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return await response.json();
     } catch (error) {
         console.error('Error loading events data:', error);
-        // Return fallback data or empty array
         return [];
     }
 }
 
-/**
- * Get registration status for an event
- */
 function getRegistrationStatus(event) {
     const now = new Date();
     const regOpenDate = new Date(event.regOpenDate);
@@ -30,86 +22,31 @@ function getRegistrationStatus(event) {
     const eventStartDate = new Date(event.startDate);
     const eventEndDate = new Date(event.endDate);
 
-    // Event has ended
-    if (now > eventEndDate) {
-        return {
-            status: 'event-ended',
-            message: 'Event Ended',
-            canRegister: false,
-            buttonClass: 'btn-disabled'
-        };
-    }
+    if (now > eventEndDate) return { status: 'event-ended', message: 'Event Ended', canRegister: false, buttonClass: 'btn-disabled' };
+    if (now >= eventStartDate && now <= eventEndDate) return { status: 'event-ongoing', message: 'Event in Progress', canRegister: false, buttonClass: 'btn-disabled' };
+    if (now < regOpenDate) return { status: 'registration-not-open', message: 'Registration Opens Soon', canRegister: false, buttonClass: 'btn-disabled', countdown: regOpenDate };
+    if (now > regCloseDate) return { status: 'registration-closed', message: 'Registration Closed', canRegister: false, buttonClass: 'btn-disabled' };
 
-    // Event is currently happening
-    if (now >= eventStartDate && now <= eventEndDate) {
-        return {
-            status: 'event-ongoing',
-            message: 'Event in Progress',
-            canRegister: false,
-            buttonClass: 'btn-disabled'
-        };
-    }
-
-    // Registration not yet open
-    if (now < regOpenDate) {
-        return {
-            status: 'registration-not-open',
-            message: 'Registration Opens Soon',
-            canRegister: false,
-            buttonClass: 'btn-disabled',
-            countdown: regOpenDate
-        };
-    }
-
-    // Registration closed
-    if (now > regCloseDate) {
-        return {
-            status: 'registration-closed',
-            message: 'Registration Closed',
-            canRegister: false,
-            buttonClass: 'btn-disabled'
-        };
-    }
-
-    // Registration is open
-    return {
-        status: 'registration-open',
-        message: 'Register Now',
-        canRegister: true,
-        buttonClass: 'btn-register'
-    };
+    return { status: 'registration-open', message: 'Register Now', canRegister: true, buttonClass: 'btn-register' };
 }
 
-// Create floating particles
 function createParticles() {
-    const particlesContainer = document.getElementById('particles-container');
-    const particleCount = 50;
-
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-
-        // Random horizontal position
-        particle.style.left = Math.random() * 100 + '%';
-
-        // Random animation delay
-        particle.style.animationDelay = Math.random() * 25 + 's';
-
-        // Random animation duration variation
-        const baseDuration = 25 + Math.random() * 10;
-        particle.style.animationDuration = baseDuration + 's';
-
-        particlesContainer.appendChild(particle);
+    const container = document.getElementById('particles-container');
+    for (let i = 0; i < 50; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDelay = Math.random() * 25 + 's';
+        p.style.animationDuration = 25 + Math.random() * 10 + 's';
+        container.appendChild(p);
     }
 }
 
-// Main initialization using async/await
 document.addEventListener("DOMContentLoaded", async () => {
     createParticles();
 
-    // Show loading state
-    const eventListContainer = document.querySelector(".event-list");
-    eventListContainer.innerHTML = `
+    const container = document.querySelector(".upcoming-events");
+    container.innerHTML = `
       <div class="no-events">
         <div class="loading"></div>
         <h3>Loading Events...</h3>
@@ -118,197 +55,120 @@ document.addEventListener("DOMContentLoaded", async () => {
     `;
 
     try {
-        // Load events data using async/await
         eventsData = await loadEventsData();
-
-        // Create event cards with loaded data
         await createEventCards();
     } catch (error) {
         console.error('Failed to initialize events:', error);
-        eventListContainer.innerHTML = `
+        container.innerHTML = `
         <div class="no-events">
           <h3>Failed to Load Events</h3>
           <p>Please check your connection and try again.</p>
-        </div>
-      `;
+        </div>`;
     }
 });
 
-/**
- * Enhanced function to create event cards with registration status
- */
 async function createEventCards() {
-    const eventListContainer = document.querySelector(".event-list");
-    eventListContainer.innerHTML = "";
+    const container = document.querySelector(".upcoming-events");
+    container.innerHTML = "";
 
-    // Filter to show only upcoming events
-    const upcomingEvents = eventsData.filter(event => {
-        const eventEndDate = new Date(event.endDate);
-        const now = new Date();
-        return eventEndDate > now;
-    });
+    const upcoming = eventsData.filter(e => new Date(e.endDate) > new Date());
 
-    if (upcomingEvents.length === 0) {
-        eventListContainer.innerHTML = `
-        <div class="no-events">
-          <h3>No Upcoming Events</h3>
-          <p>Check back soon for new events!</p>
-        </div>
-      `;
+    if (upcoming.length === 0) {
+        container.innerHTML = `<div class="no-events"><h3>No Upcoming Events</h3><p>Check back soon!</p></div>`;
         return;
     }
 
-    upcomingEvents.forEach((event, index) => {
-        const countdownId = `countdown-${index}`;
-        const registerBtnId = `register-btn-${index}`;
+    upcoming.forEach((event, i) => {
+        const countdownId = `countdown-${i}`;
+        const registerBtnId = `register-btn-${i}`;
         const regStatus = getRegistrationStatus(event);
 
-        const eventHTML = `
+        container.insertAdjacentHTML("beforeend", `
         <div class="event">
-          <img 
-            src="${event.image}" 
-            alt="${event.title} Image" 
-            class="event-img"
-            onerror="this.src='https://via.placeholder.com/400x200/1e40af/ffffff?text=Event+Image'"
-          />
-          
+          <img src="${event.image}" alt="${event.title}" class="event-img"
+               onerror="this.src='https://via.placeholder.com/400x200/1e40af/ffffff?text=Event+Image'" />
           <h3 class="event-title">${event.title}</h3>
           <p>${event.description}</p>
-          
-          <p><strong>Event Date:</strong> ${formatEventDate(event.startDate)}</p>
-          
+          <p><strong>Event Date:</strong> ${formatDate(event.startDate)}</p>
           <div class="registration-dates">
-            <p><strong>Registration:</strong> ${formatEventDate(event.regOpenDate)} - ${formatEventDate(event.regCloseDate)}</p>
+            <p><strong>Registration:</strong> ${formatDate(event.regOpenDate)} - ${formatDate(event.regCloseDate)}</p>
           </div>
-          
-          <div class="registration-status ${regStatus.status === 'registration-open' ? 'status-open' : regStatus.status === 'registration-closed' || regStatus.status === 'event-ended' ? 'status-closed' : 'status-soon'}">
-            ${regStatus.message}
-          </div>
-          
-          <p id="${countdownId}" class="event-countdown">
-            <span class="loading"></span> Loading countdown...
-          </p>
-          
-          <button 
-            id="${registerBtnId}" 
-            class="${regStatus.canRegister ? 'btn-register' : 'btn-disabled'}"
-            ${!regStatus.canRegister ? 'disabled' : ''}
-            data-registration-link="${event.registrationLink || ''}"
-            data-pdf-url="${event.pdfUrl || ''}"
-          >
+          <div class="registration-status ${regStatus.status}">${regStatus.message}</div>
+          <p id="${countdownId}" class="event-countdown"><span class="loading"></span> Loading countdown...</p>
+          <button id="${registerBtnId}" class="${regStatus.buttonClass}" ${!regStatus.canRegister ? 'disabled' : ''} 
+            data-registration-link="${event.registrationLink || ''}" data-pdf-url="${event.pdfUrl || ''}">
             ${regStatus.message}
           </button>
         </div>
-      `;
+        `);
 
-        eventListContainer.insertAdjacentHTML("beforeend", eventHTML);
         initEventCountdown(event, countdownId, registerBtnId);
     });
 }
 
-/**
- * Enhanced countdown initialization with registration status updates
- */
 function initEventCountdown(event, countdownId, registerBtnId) {
-    const startTime = new Date(event.startDate).getTime();
-    const endTime = new Date(event.endDate).getTime();
-    const regOpenTime = new Date(event.regOpenDate).getTime();
-    const regCloseTime = new Date(event.regCloseDate).getTime();
+    const start = new Date(event.startDate).getTime();
+    const end = new Date(event.endDate).getTime();
+    const regOpen = new Date(event.regOpenDate).getTime();
 
-    const countdownEl = document.getElementById(countdownId);
-    const registerBtn = document.getElementById(registerBtnId);
+    const el = document.getElementById(countdownId);
+    const btn = document.getElementById(registerBtnId);
 
-    // Enhanced button click handler
-    registerBtn.addEventListener('click', function () {
-        if (this.disabled) {
-            return;
-        }
-
-        const registrationLink = this.getAttribute('data-registration-link');
-        const pdfUrl = this.getAttribute('data-pdf-url');
-
-        if (registrationLink) {
-            window.open(registrationLink, '_blank');
-        } else if (pdfUrl) {
-            window.open(pdfUrl, '_blank');
-        } else {
-            alert('Registration link not available.');
-        }
+    btn.addEventListener('click', function () {
+        if (this.disabled) return;
+        const link = this.getAttribute('data-registration-link');
+        const pdf = this.getAttribute('data-pdf-url');
+        if (link) window.open(link, '_blank');
+        else if (pdf) window.open(pdf, '_blank');
+        else alert('Registration link not available.');
     });
 
-    const interval = setInterval(() => {
+    const timer = setInterval(() => {
         const now = Date.now();
-        const regStatus = getRegistrationStatus(event);
+        const status = getRegistrationStatus(event);
+        btn.disabled = !status.canRegister;
+        btn.className = status.buttonClass;
+        btn.textContent = status.message;
 
-        // Update button state
-        if (regStatus.canRegister) {
-            registerBtn.disabled = false;
-            registerBtn.className = 'btn-register';
-            registerBtn.textContent = regStatus.message;
-        } else {
-            registerBtn.disabled = true;
-            registerBtn.className = 'btn-disabled';
-            registerBtn.textContent = regStatus.message;
-        }
-
-        // Event ended
-        if (now >= endTime) {
-            clearInterval(interval);
-            countdownEl.style.display = 'none';
+        if (now >= end) {
+            clearInterval(timer);
+            el.style.display = 'none';
             return;
         }
 
-        // Event started
-        if (now >= startTime && now < endTime) {
-            countdownEl.innerHTML = "🚀 Event in Progress!";
-        }
-        // Event hasn't started yet
-        else if (now < startTime) {
-            const distance = startTime - now;
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            if (now < regOpenTime) {
-                countdownEl.innerHTML = `⏰ Registration opens in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-            } else {
-                countdownEl.innerHTML = `⏰ Event starts in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-            }
+        if (now >= start) {
+            el.textContent = "🚀 Event in Progress!";
+        } else {
+            const t = start - now;
+            const d = Math.floor(t / (1000 * 60 * 60 * 24));
+            const h = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((t % (1000 * 60)) / 1000);
+            el.textContent = now < regOpen ?
+                `⏰ Registration opens in: ${d}d ${h}h ${m}m ${s}s` :
+                `⏰ Event starts in: ${d}d ${h}h ${m}m ${s}s`;
         }
     }, 1000);
 }
 
-/**
- * Utility: Format date string into a local, readable form
- */
-function formatEventDate(dateStr) {
-    const dateObj = new Date(dateStr);
-    return dateObj.toLocaleString([], {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
+function formatDate(dateStr) {
+    return new Date(dateStr).toLocaleString([], {
+        year: "numeric", month: "long", day: "numeric",
+        hour: "2-digit", minute: "2-digit"
     });
 }
 
-/**
- * Optional: Refresh events data periodically
- */
-async function refreshEventsData() {
-    try {
-        const newEventsData = await loadEventsData();
-        if (newEventsData.length > 0) {
-            eventsData = newEventsData;
-            await createEventCards();
-            console.log('Events data refreshed successfully');
-        }
-    } catch (error) {
-        console.error('Failed to refresh events data:', error);
-    }
-}
-
-// Optional: Refresh events every 5 minutes
 setInterval(refreshEventsData, 5 * 60 * 1000);
 
+async function refreshEventsData() {
+    try {
+        const newData = await loadEventsData();
+        if (newData.length > 0) {
+            eventsData = newData;
+            await createEventCards();
+            console.log("Events refreshed");
+        }
+    } catch (error) {
+        console.error("Failed to refresh events", error);
+    }
+}
