@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Animated UI</title>
+    
+</head>
+<body>
+    
+<section id="events" class="section-events">
+        <div class="container">
+            <h2 class="section-title">Past Events</h2>
+            <div class="event-list">
+                <!-- Dynamic event cards will be populated here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Enhanced events data with registration open/close dates
+        const eventsData = [
+          {
+            title: "AI & Machine Learning Workshop",
+            startDate: "2025-06-15T09:00:00",
+            endDate: "2025-06-15T18:00:00",
+            regOpenDate: "2025-05-01T00:00:00",
+            regCloseDate: "2025-06-10T23:59:59",
+            registrationLink: "https://example.com/register/ai-workshop",
+            description: "Learn the fundamentals of AI in our hands-on workshop. Suitable for beginners.",
+            image: "https://media.istockphoto.com/id/537331500/photo/programming-code-abstract-technology-background-of-software-deve.jpg?s=612x612&w=0&k=20&c=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8=",
+            pdfUrl: "https://drive.google.com/file/d/1ABC123XYZ456DEF789GHI012JKL345MNO/view"
+          },
+          {
+            title: "Hackathon 2025",
+            startDate: "2025-07-10T08:00:00",
+            endDate: "2025-07-12T08:00:00",
+            regOpenDate: "2025-06-01T00:00:00",
+            regCloseDate: "2025-07-05T23:59:59",
+            registrationLink: "https://example.com/register/hackathon-2025",
+            description: "Compete in our 48-hour hackathon. Prizes and networking opportunities await!",
+            image: "https://media.istockphoto.com/id/537331500/photo/programming-code-abstract-technology-background-of-software-deve.jpg?s=612x612&w=0&k=20&c=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8=",
+            pdfUrl: "https://drive.google.com/file/d/1DEF456GHI789JKL012MNO345PQR678STU/view"
+          },
+          {
+            title: "Tech Talk Series",
+            startDate: "2025-08-05T10:00:00",
+            endDate: "2025-08-05T12:00:00",
+            regOpenDate: "2025-07-01T00:00:00",
+            regCloseDate: "2025-08-01T23:59:59",
+            registrationLink: "https://example.com/register/tech-talk",
+            description: "Industry experts share insights into the latest trends in AI, cloud computing, and more.",
+            image: "https://media.istockphoto.com/id/537331500/photo/programming-code-abstract-technology-background-of-software-deve.jpg?s=612x612&w=0&k=20&c=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8=",
+            pdfUrl: "https://drive.google.com/file/d/1GHI789JKL012MNO345PQR678STU901VWX/view"
+          },
+          {
+            title: "Cybersecurity Summit",
+            startDate: "2025-04-20T10:00:00",
+            endDate: "2025-04-20T17:00:00",
+            regOpenDate: "2025-03-01T00:00:00",
+            regCloseDate: "2025-04-15T23:59:59",
+            registrationLink: "https://example.com/register/cybersecurity-summit",
+            description: "Learn best practices and new developments in cybersecurity from top professionals.",
+            image: "https://via.placeholder.com/400x200/1e40af/ffffff?text=Cybersecurity",
+            pdfUrl: "https://drive.google.com/file/d/1JKL012MNO345PQR678STU901VWX234YZA/view"
+          }
+        ];
+
+        /**
+         * Get registration status for an event
+         */
+        function getRegistrationStatus(event) {
+          const now = new Date();
+          const regOpenDate = new Date(event.regOpenDate);
+          const regCloseDate = new Date(event.regCloseDate);
+          const eventStartDate = new Date(event.startDate);
+          const eventEndDate = new Date(event.endDate);
+
+          // Event has ended
+          if (now > eventEndDate) {
+            return {
+              status: 'event-ended',
+              message: 'Event Ended',
+              canRegister: false,
+              buttonClass: 'btn-disabled'
+            };
+          }
+
+          // Event is currently happening
+          if (now >= eventStartDate && now <= eventEndDate) {
+            return {
+              status: 'event-ongoing',
+              message: 'Event in Progress',
+              canRegister: false,
+              buttonClass: 'btn-disabled'
+            };
+          }
+
+          // Registration not yet open
+          if (now < regOpenDate) {
+            return {
+              status: 'registration-not-open',
+              message: 'Registration Opens Soon',
+              canRegister: false,
+              buttonClass: 'btn-disabled',
+              countdown: regOpenDate
+            };
+          }
+
+          // Registration closed
+          if (now > regCloseDate) {
+            return {
+              status: 'registration-closed',
+              message: 'Registration Closed',
+              canRegister: false,
+              buttonClass: 'btn-disabled'
+            };
+          }
+
+          // Registration is open
+          return {
+            status: 'registration-open',
+            message: 'Register Now',
+            canRegister: true,
+            buttonClass: 'btn-register'
+          };
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles-container');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random horizontal position
+                particle.style.left = Math.random() * 100 + '%';
+                
+                // Random animation delay
+                particle.style.animationDelay = Math.random() * 25 + 's';
+                
+                // Random animation duration variation
+                const baseDuration = 25 + Math.random() * 10;
+                particle.style.animationDuration = baseDuration + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Wait until DOM is loaded to manipulate elements
+        document.addEventListener("DOMContentLoaded", () => {
+          createParticles();
+          createEventCards();
+        });
+
+        /**
+         * Enhanced function to create event cards with registration status
+         */
+        function createEventCards() {
+          const eventListContainer = document.querySelector(".event-list");
+          eventListContainer.innerHTML = "";
+
+          // Filter to show only upcoming events
+          const upcomingEvents = eventsData.filter(event => {
+            const eventEndDate = new Date(event.endDate);
+            const now = new Date();
+            return eventEndDate > now;
+          });
+
+          if (upcomingEvents.length === 0) {
+            eventListContainer.innerHTML = `
+              <div class="no-events">
+                <h3>No Upcoming Events</h3>
+                <p>Check back soon for new events!</p>
+              </div>
+            `;
+            return;
+          }
+
+          upcomingEvents.forEach((event, index) => {
+            const countdownId = `countdown-${index}`;
+            const registerBtnId = `register-btn-${index}`;
+            const regStatus = getRegistrationStatus(event);
+
+            const eventHTML = `
+              <div class="event">
+                <img 
+                  src="${event.image}" 
+                  alt="${event.title} Image" 
+                  class="event-img"
+                />
+                
+                <h3 class="event-title">${event.title}</h3>
+                <p>${event.description}</p>
+                
+                <p><strong>Event Date:</strong> ${formatEventDate(event.startDate)}</p>
+                
+                <div class="registration-dates">
+                  <p><strong>Registration:</strong> ${formatEventDate(event.regOpenDate)} - ${formatEventDate(event.regCloseDate)}</p>
+                </div>
+                
+                <div class="registration-status ${regStatus.status === 'registration-open' ? 'status-open' : regStatus.status === 'registration-closed' || regStatus.status === 'event-ended' ? 'status-closed' : 'status-soon'}">
+                  ${regStatus.message}
+                </div>
+                
+                <p id="${countdownId}" class="event-countdown">
+                  <span class="loading"></span> Loading countdown...
+                </p>
+                
+                <button 
+                  id="${registerBtnId}" 
+                  class="${regStatus.canRegister ? 'btn-register' : 'btn-disabled'}"
+                  ${!regStatus.canRegister ? 'disabled' : ''}
+                  data-registration-link="${event.registrationLink}"
+                  data-pdf-url="${event.pdfUrl}"
+                >
+                  ${regStatus.message}
+                </button>
+              </div>
+            `;
+
+            eventListContainer.insertAdjacentHTML("beforeend", eventHTML);
+            initEventCountdown(event, countdownId, registerBtnId);
+          });
+        }
+
+        /**
+         * Enhanced countdown initialization with registration status updates
+         */
+        function initEventCountdown(event, countdownId, registerBtnId) {
+          const startTime = new Date(event.startDate).getTime();
+          const endTime = new Date(event.endDate).getTime();
+          const regOpenTime = new Date(event.regOpenDate).getTime();
+          const regCloseTime = new Date(event.regCloseDate).getTime();
+          
+          const countdownEl = document.getElementById(countdownId);
+          const registerBtn = document.getElementById(registerBtnId);
+
+          // Enhanced button click handler
+          registerBtn.addEventListener('click', function() {
+            if (this.disabled) {
+              return;
+            }
+
+            const registrationLink = this.getAttribute('data-registration-link');
+            const pdfUrl = this.getAttribute('data-pdf-url');
+            
+            if (registrationLink) {
+              window.open(registrationLink, '_blank');
+            } else if (pdfUrl) {
+              window.open(pdfUrl, '_blank');
+            } else {
+              alert('Registration link not available.');
+            }
+          });
+
+          const interval = setInterval(() => {
+            const now = Date.now();
+            const regStatus = getRegistrationStatus(event);
+
+            // Update button state
+            if (regStatus.canRegister) {
+              registerBtn.disabled = false;
+              registerBtn.className = 'btn-register';
+              registerBtn.textContent = regStatus.message;
+            } else {
+              registerBtn.disabled = true;
+              registerBtn.className = 'btn-disabled';
+              registerBtn.textContent = regStatus.message;
+            }
+
+            // Event ended
+            if (now >= endTime) {
+              clearInterval(interval);
+              countdownEl.style.display = 'none';
+              return;
+            }
+
+            // Event started
+            if (now >= startTime && now < endTime) {
+              countdownEl.innerHTML = "🚀 Event in Progress!";
+            }
+            // Event hasn't started yet
+            else if (now < startTime) {
+              const distance = startTime - now;
+              const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+              if (now < regOpenTime) {
+                countdownEl.innerHTML = `⏰ Registration opens in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+              } else {
+                countdownEl.innerHTML = `⏰ Event starts in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+              }
+            }
+          }, 1000);
+        }
+
+        /**
+         * Utility: Format date string into a local, readable form
+         */
+        function formatEventDate(dateStr) {
+          const dateObj = new Date(dateStr);
+          return dateObj.toLocaleString([], {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+        }
+    </script>
+</body>
+</html>
