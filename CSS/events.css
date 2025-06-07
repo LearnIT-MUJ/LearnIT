@@ -156,10 +156,11 @@ body {
 
 .event-list,
 .slick-about {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  justify-items: center; /* Center the event cards */
 }
 
 
@@ -169,11 +170,7 @@ body {
 
 
 .event {
-  background: linear-gradient(
-    145deg,
-    rgba(15, 23, 42, 0.8),
-    rgba(30, 41, 59, 0.6)
-  );
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
   border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: 20px;
   padding: 30px;
@@ -184,6 +181,11 @@ body {
   transform: translateY(50px);
   animation: slideInUp 0.8s ease-out forwards;
   backdrop-filter: blur(10px);
+  max-width: 420px; /* Limit card width */
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .event:nth-child(1) {

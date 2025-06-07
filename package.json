@@ -1,0 +1,24 @@
+{
+  "name": "learnit_prod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pastEvents.js",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=./index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshat4474/LearnIT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akshat4474/LearnIT/issues"
+  },
+  "homepage": "https://github.com/akshat4474/LearnIT#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

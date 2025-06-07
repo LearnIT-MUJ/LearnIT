@@ -1,18 +1,90 @@
-// Global variable to store events data
-let eventsData = [];
+let upcomingEventsData = [];
 
 /**
- * Fetch events data from JSON file using async/await
+ * Load upcoming events from JSON
  */
-async function loadEventsData() {
+async function loadUpcomingEventsData() {
     try {
-        const response = await fetch('upcomingEvents.json');
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        return await response.json();
-    } catch (error) {
-        console.error('Error loading events data:', error);
+        const res = await fetch('upcomingEvents.json');
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return await res.json();
+    } catch (err) {
+        console.error('Error loading upcoming events:', err);
         return [];
     }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const container = document.querySelector(".upcoming-events");
+
+    container.innerHTML = `
+      <div class="no-events">
+        <div class="loading"></div>
+        <h3>Loading Upcoming Events...</h3>
+        <p>Please wait while we fetch upcoming events data.</p>
+      </div>
+    `;
+
+    try {
+        upcomingEventsData = await loadUpcomingEventsData();
+        await createUpcomingEventCards();
+    } catch (err) {
+        console.error('Failed to init upcoming events:', err);
+        container.innerHTML = `
+        <div class="no-events">
+          <h3>Failed to Load Upcoming Events</h3>
+          <p>Please try again later.</p>
+        </div>`;
+    }
+});
+
+async function createUpcomingEventCards() {
+    const container = document.querySelector(".upcoming-events");
+    container.innerHTML = "";
+
+    const sorted = upcomingEventsData
+        .filter(e => new Date(e.startDate) >= new Date())
+        .sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
+
+    if (sorted.length === 0) {
+        container.innerHTML = `
+        <div class="no-events">
+          <h3>No Upcoming Events Found</h3>
+          <p>Stay tuned for updates!</p>
+        </div>`;
+        return;
+    }
+
+    let html = '';
+    sorted.forEach((event, i) => {
+        const countdownId = `countdown-${i}`;
+        const registerBtnId = `register-btn-${i}`;
+        const regStatus = getRegistrationStatus(event);
+
+        html += `
+        <div class="event">
+          <img src="${event.image}" alt="${event.title}" class="event-img"
+               onerror="this.src='https://via.placeholder.com/400x200/1e3a8a/ffffff?text=Upcoming+Event'" />
+          <h3 class="event-title">${event.title}</h3>
+          <p class="event-description">${event.description}</p>
+          <p class="event-date"><strong>Event Date:</strong> ${formatDateTime(event.startDate)}</p>
+          <div class="registration-dates">
+            <p><strong>Registration:</strong> ${formatDateTime(event.regOpenDate)} - ${formatDateTime(event.regCloseDate)}</p>
+          </div>
+          <div class="registration-status ${regStatus.status}">${regStatus.message}</div>
+          <p id="${countdownId}" class="event-countdown"><span class="loading"></span> Loading countdown...</p>
+          <button id="${registerBtnId}" class="${regStatus.buttonClass}" ${!regStatus.canRegister ? 'disabled' : ''} 
+            data-registration-link="${event.registrationLink || ''}" data-pdf-url="${event.pdfUrl || ''}">
+            ${regStatus.message}
+          </button>
+        </div>`;
+    });
+
+    container.innerHTML = html;
+
+    sorted.forEach((event, i) => {
+        initEventCountdown(event, `countdown-${i}`, `register-btn-${i}`);
+    });
 }
 
 function getRegistrationStatus(event) {
@@ -30,86 +102,10 @@ function getRegistrationStatus(event) {
     return { status: 'registration-open', message: 'Register Now', canRegister: true, buttonClass: 'btn-register' };
 }
 
-function createParticles() {
-    const container = document.getElementById('particles-container');
-    for (let i = 0; i < 50; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        p.style.left = Math.random() * 100 + '%';
-        p.style.animationDelay = Math.random() * 25 + 's';
-        p.style.animationDuration = 25 + Math.random() * 10 + 's';
-        container.appendChild(p);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", async () => {
-    createParticles();
-
-    const container = document.querySelector(".upcoming-events");
-    container.innerHTML = `
-      <div class="no-events">
-        <div class="loading"></div>
-        <h3>Loading Events...</h3>
-        <p>Please wait while we fetch the latest events.</p>
-      </div>
-    `;
-
-    try {
-        eventsData = await loadEventsData();
-        await createEventCards();
-    } catch (error) {
-        console.error('Failed to initialize events:', error);
-        container.innerHTML = `
-        <div class="no-events">
-          <h3>Failed to Load Events</h3>
-          <p>Please check your connection and try again.</p>
-        </div>`;
-    }
-});
-
-async function createEventCards() {
-    const container = document.querySelector(".upcoming-events");
-    container.innerHTML = "";
-
-    const upcoming = eventsData.filter(e => new Date(e.endDate) > new Date());
-
-    if (upcoming.length === 0) {
-        container.innerHTML = `<div class="no-events"><h3>No Upcoming Events</h3><p>Check back soon!</p></div>`;
-        return;
-    }
-
-    upcoming.forEach((event, i) => {
-        const countdownId = `countdown-${i}`;
-        const registerBtnId = `register-btn-${i}`;
-        const regStatus = getRegistrationStatus(event);
-
-        container.insertAdjacentHTML("beforeend", `
-        <div class="event">
-          <img src="${event.image}" alt="${event.title}" class="event-img"
-               onerror="this.src='https://via.placeholder.com/400x200/1e40af/ffffff?text=Event+Image'" />
-          <h3 class="event-title">${event.title}</h3>
-          <p>${event.description}</p>
-          <p><strong>Event Date:</strong> ${formatDate(event.startDate)}</p>
-          <div class="registration-dates">
-            <p><strong>Registration:</strong> ${formatDate(event.regOpenDate)} - ${formatDate(event.regCloseDate)}</p>
-          </div>
-          <div class="registration-status ${regStatus.status}">${regStatus.message}</div>
-          <p id="${countdownId}" class="event-countdown"><span class="loading"></span> Loading countdown...</p>
-          <button id="${registerBtnId}" class="${regStatus.buttonClass}" ${!regStatus.canRegister ? 'disabled' : ''} 
-            data-registration-link="${event.registrationLink || ''}" data-pdf-url="${event.pdfUrl || ''}">
-            ${regStatus.message}
-          </button>
-        </div>
-        `);
-
-        initEventCountdown(event, countdownId, registerBtnId);
-    });
-}
-
 function initEventCountdown(event, countdownId, registerBtnId) {
     const start = new Date(event.startDate).getTime();
-    const end = new Date(event.endDate).getTime();
     const regOpen = new Date(event.regOpenDate).getTime();
+    const end = new Date(event.endDate).getTime();
 
     const el = document.getElementById(countdownId);
     const btn = document.getElementById(registerBtnId);
@@ -136,39 +132,33 @@ function initEventCountdown(event, countdownId, registerBtnId) {
             return;
         }
 
-        if (now >= start) {
-            el.textContent = "🚀 Event in Progress!";
-        } else {
-            const t = start - now;
-            const d = Math.floor(t / (1000 * 60 * 60 * 24));
-            const h = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((t % (1000 * 60)) / 1000);
-            el.textContent = now < regOpen ?
-                `⏰ Registration opens in: ${d}d ${h}h ${m}m ${s}s` :
-                `⏰ Event starts in: ${d}d ${h}h ${m}m ${s}s`;
-        }
+        const t = now < start ? start - now : regOpen - now;
+        const d = Math.floor(t / (1000 * 60 * 60 * 24));
+        const h = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((t % (1000 * 60)) / 1000);
+
+        el.textContent = now < regOpen ?
+            `⏳ Registration opens in: ${d}d ${h}h ${m}m ${s}s` :
+            `🚀 Event starts in: ${d}d ${h}h ${m}m ${s}s`;
     }, 1000);
 }
 
-function formatDate(dateStr) {
+function formatDateTime(dateStr) {
     return new Date(dateStr).toLocaleString([], {
-        year: "numeric", month: "long", day: "numeric",
-        hour: "2-digit", minute: "2-digit"
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true
     });
 }
 
-setInterval(refreshEventsData, 5 * 60 * 1000);
-
-async function refreshEventsData() {
-    try {
-        const newData = await loadEventsData();
-        if (newData.length > 0) {
-            eventsData = newData;
-            await createEventCards();
-            console.log("Events refreshed");
-        }
-    } catch (error) {
-        console.error("Failed to refresh events", error);
-    }
+function formatDateOnly(dateStr) {
+    return new Date(dateStr).toLocaleDateString([], {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    });
 }
