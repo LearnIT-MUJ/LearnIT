@@ -8,10 +8,10 @@
 :root {
   /* Color Palette from uploaded image */
   --primary-dark: #0A0A0A;
-  --primary-blue: #1E3A8A;
+  --primary-blue: #0e318f;
   --secondary-blue: #3B82F6;
-  --accent-purple: #8B5CF6;
-  --light-purple: #C4B5FD;
+  --accent-purple: #4d47fa;
+  --light-purple: #fdceb5;
   --bg-light: #000810;
   --text-dark: #ffffff;
   --text-light: #bcc9e5;
@@ -53,6 +53,7 @@ body {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 50%, var(--secondary-blue) 100%);
   min-height: 60vh;
   display: flex;
+  margin-top: 80px;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -165,7 +166,7 @@ body {
 }
 
 .section-subtitle {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--secondary-blue);
   text-transform: uppercase;
@@ -227,7 +228,7 @@ body {
 
 .content-image img {
   width: 100%;
-  height: 400px;
+  height: 550px;
   object-fit: cover;
   transition: var(--transition-slow);
 }
@@ -492,11 +493,11 @@ body {
   }
   
   .content-image {
-    height: 300px;
+    height: 400px;
   }
   
   .content-image img {
-    height: 300px;
+    height: 400px; 
   }
   
   .timeline::before {
