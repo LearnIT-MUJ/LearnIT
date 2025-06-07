@@ -107,14 +107,14 @@ function createTeamCards() {
     let socialLinks = '';
 
     // Validate and add social media links dynamically
+    // Check for Linkedin
     if (team.Linkedin) {
-      socialLinks += `<a href="${team.Linkedin}" target="_blank" class="social linkedin"><i class="fab fa-linkedin"></i></a>`;
+      socialLinks += `<a href="${team.Linkedin}" target="_blank"><i class="fab fa-linkedin"></i></a>`;
     }
     // Check for Instagram
     if (team.Instagram) {
-      socialLinks += `<a href="${team.Instagram}" target="_blank" class="social instagram"><i class="fab fa-instagram"></i></a>`;
+      socialLinks += `<a href="${team.Instagram}" target="_blank"><i class="fab fa-instagram"></i></a>`;
     }
-
 
     const cardHTML = `
       <div class="col-md-4" data-aos="fade-up" data-aos-delay="${index * 100}">
@@ -125,7 +125,7 @@ function createTeamCards() {
           <div class="card-body">
             <h5>${team.name}</h5>
             <p>${team.title}</p>
-            <p class="member-role">${team.role}</p>
+            <p>${team.role}</p>
             <div class="social-links">${socialLinks}</div>
           </div>
         </div>
