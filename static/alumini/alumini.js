@@ -24,14 +24,6 @@ const aluminiData = [
         Instagram: 'https://www.instagram.com/im.vighnesh/?utm_source=ig_web_button_share_sheet',
     },
     {
-        image: 'images/Alumini/2023 -24/Varshita_Jain.jpg',
-        name: 'Varshita Jain',
-        title: 'Event Helmsman:- Guiding the ship through exciting adventures and celebrations, meet Varshita, our Head of Events! 🎉',
-        role: 'Head of Events',
-        Linkedin: 'https://www.linkedin.com/in/varshita-jain-35a735205/',
-        Instagram: 'https://www.instagram.com/varshi.hihihi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
-    },
-    {
         image: 'images/Alumini/2023 -24/Baibhav_Kumar.jpg',
         name: 'Baibhav Kumar',
         title: 'Treasurer of the Ship’s Chest:- Keeping the ship’s finances afloat and the budget in check, shoutout to Baibhav! 💰',
@@ -39,6 +31,15 @@ const aluminiData = [
         Linkedin: 'https://www.linkedin.com/in/baibhav-kumar-0b15a524a/',
         Instagram: 'https://www.instagram.com/its_me_b___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
     },
+    {
+        image: 'images/Alumini/2023 -24/Varshita_Jain.jpg',
+        name: 'Varshita Jain',
+        title: 'Event Helmsman:- Guiding the ship through exciting adventures and celebrations, meet Varshita, our Head of Events! 🎉',
+        role: 'Head of Events',
+        Linkedin: 'https://www.linkedin.com/in/varshita-jain-35a735205/',
+        Instagram: 'https://www.instagram.com/varshi.hihihi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+    },
+    
     {
         image: 'images/Alumini/2023 -24/Ritik_Laxwani.jpeg',
         name: 'Ritik Laxwani',
@@ -48,12 +49,18 @@ const aluminiData = [
         Instagram: 'https://www.instagram.com/ritiklaxwani/?utm_source=ig_web_button_share_sheet',
     },
     {
-        image: 'https://via.placeholder.com/150',
+        image: 'images/Alumini/2023 -24/Srishti_Mahapatra.jpg',
         name: 'Srishti Mahapatra',
         title: 'Sail Designer:- The artist who makes our sails vibrant and eye-catching, with Srishti as Head of Design! 🌈',
         role: 'Head of Design',
         Linkedin: 'https://www.linkedin.com/in/srishti-mahapatra-b54062246/',
         Instagram: 'https://www.instagram.com/srishtimahapatra?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+    },
+    {
+        image: 'images/Alumini/2023 -24/Parth.jpg',
+        name: 'Parth Agrawal',
+        role: 'Head of Media',
+        Linkedin: 'https://www.linkedin.com/in/parth-agrawal-897605265/',
     },
     // {
     //     image: 'https://via.placeholder.com/150',
