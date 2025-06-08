@@ -63,7 +63,7 @@ const aluminiData = [
         Linkedin: 'https://www.linkedin.com/in/parth-agrawal-897605265/',
     },
     {
-        image: 'images/Alumini/2023 -24/Parth.jpg',
+        image: 'images/Alumini/2023 -24/Guneet_Singh.jpg',
         name: 'Guneet Singh',
         role: 'Joint Head of Media',
         Linkedin: 'https://www.linkedin.com/in/guneet-singh-5a179a291/',
