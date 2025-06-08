@@ -63,6 +63,7 @@ const teamData = [
     title: 'Wordsmith-in-Chief ✍️ – Weaving words into wonder, curating stories that connect and inspire.',
     role: 'Head of Content',
     Linkedin: 'https://www.linkedin.com/in/karen-sylvia-vasmalla-7066b6287',
+    Instagram: 'https://www.instagram.com/karenvsylvia?igsh=MnRtdW9pbTU1bWM0'
   },
   {
     image: 'images/Team/Abhinav_Awasthi.webp',
