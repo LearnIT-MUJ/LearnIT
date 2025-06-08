@@ -59,8 +59,14 @@ const aluminiData = [
     {
         image: 'images/Alumini/2023 -24/Parth.jpg',
         name: 'Parth Agrawal',
-        role: 'Head of Media',
+        role: 'Joint Head of Media',
         Linkedin: 'https://www.linkedin.com/in/parth-agrawal-897605265/',
+    },
+    {
+        image: 'images/Alumini/2023 -24/Parth.jpg',
+        name: 'Guneet Singh',
+        role: 'Joint Head of Media',
+        Linkedin: 'https://www.linkedin.com/in/guneet-singh-5a179a291/',
     },
     // {
     //     image: 'https://via.placeholder.com/150',
