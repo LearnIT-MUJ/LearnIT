@@ -1,6 +1,6 @@
 const aluminiData = [
     {
-        image: 'images/Alumini/2023 -24/Sana_Singh.jpg',
+        image: 'images/Alumini/2024-25/Sana_Singh.jpg',
         name: 'Sana Singh',
         title: 'Captain:- Leading the voyage with big ideas and even bigger plans, meet Sana, our amazing President! 👑',
         role: 'President of LearnIT',
@@ -8,7 +8,7 @@ const aluminiData = [
         Instagram: 'https://www.instagram.com/sana_singh_31?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
     },
     {
-        image: 'images/Alumini/2023 -24/Yash_kamra.jpg',
+        image: 'images/Alumini/2024-25/Yash_Kamra1.jpg',
         name: 'Yash Kamra',
         title: 'Chief Engineer:- Steering the tech engine of our ship with brilliance Yash is our tech wizard extraordinaire! 🛠️',
         role: 'Technical Secretary',
@@ -16,7 +16,7 @@ const aluminiData = [
         Instagram: 'https://www.instagram.com/yashkamra11?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
     },
     {
-        image: 'images/Alumini/2023 -24/Vignesh_Nikam.jpg',
+        image: 'images/Alumini/2024-25/Vignesh_Nikam.jpg',
         name: 'Vighnesh Nikam',
         title: 'Navigator:- Master of organization, charting the course to success, say hey to Vighnesh, our General Secretary! 🌟',
         role: 'General Secretary',
@@ -24,7 +24,7 @@ const aluminiData = [
         Instagram: 'https://www.instagram.com/im.vighnesh/?utm_source=ig_web_button_share_sheet',
     },
     {
-        image: 'images/Alumini/2023 -24/Baibhav_Kumar.jpg',
+        image: 'images/Alumini/2024-25/Baibhav_Kumar.jpg',
         name: 'Baibhav Kumar',
         title: 'Treasurer of the Ship’s Chest:- Keeping the ship’s finances afloat and the budget in check, shoutout to Baibhav! 💰',
         role: 'Treasurer',
@@ -32,7 +32,7 @@ const aluminiData = [
         Instagram: 'https://www.instagram.com/its_me_b___?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
     },
     {
-        image: 'images/Alumini/2023 -24/Varshita_Jain.jpg',
+        image: 'images/Alumini/2024-25/Varshita_Jain.jpg',
         name: 'Varshita Jain',
         title: 'Event Helmsman:- Guiding the ship through exciting adventures and celebrations, meet Varshita, our Head of Events! 🎉',
         role: 'Head of Events',
@@ -41,7 +41,7 @@ const aluminiData = [
     },
     
     {
-        image: 'images/Alumini/2023 -24/Ritik_Laxwani.jpeg',
+        image: 'images/Alumini/2024-25/Ritik_Laxwani.jpeg',
         name: 'Ritik Laxwani',
         title: 'First Mate of Promotion:- Spreading the word and rallying the crew’s spirit, here’s Ritik, our promo genius! 📢',
         role: 'Head of Promotion',
@@ -49,7 +49,7 @@ const aluminiData = [
         Instagram: 'https://www.instagram.com/ritiklaxwani/?utm_source=ig_web_button_share_sheet',
     },
     {
-        image: 'images/Alumini/2023 -24/Srishti_Mahapatra.jpg',
+        image: 'images/Alumini/2024-25/Srishti_Mahapatra.jpg',
         name: 'Srishti Mahapatra',
         title: 'Sail Designer:- The artist who makes our sails vibrant and eye-catching, with Srishti as Head of Design! 🌈',
         role: 'Head of Design',
@@ -57,13 +57,13 @@ const aluminiData = [
         Instagram: 'https://www.instagram.com/srishtimahapatra?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
     },
     {
-        image: 'images/Alumini/2023 -24/Parth.jpg',
+        image: 'images/Alumini/2024-25/Parth.jpg',
         name: 'Parth Agrawal',
         role: 'Joint Head of Media',
         Linkedin: 'https://www.linkedin.com/in/parth-agrawal-897605265/',
     },
     {
-        image: 'images/Alumini/2023 -24/Guneet_Singh.jpg',
+        image: 'images/Alumini/2024-25/Guneet_Singh.jpg',
         name: 'Guneet Singh',
         role: 'Joint Head of Media',
         Linkedin: 'https://www.linkedin.com/in/guneet-singh-5a179a291/',
