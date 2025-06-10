@@ -61,6 +61,7 @@ const aluminiData = [
         name: 'Parth Agrawal',
         role: 'Joint Head of Media',
         Linkedin: 'https://www.linkedin.com/in/parth-agrawal-897605265/',
+        Instagram: 'https://www.instagram.com/whysoparthagrawal?igsh=bjgwdTcxbWd4OHZo&utm_source=qr'
     },
     {
         image: 'images/Alumini/2024-25/Guneet_Singh.jpg',
