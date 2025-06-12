@@ -70,8 +70,8 @@ const teamData = [
     name: 'Abhinav Awasthi',
     title: 'Design Sorcerer 🎨 – Breathing magic into every pixel, making ideas visually unforgettable.',
     role: 'Joint Head of Graphic Design',
-    Linkedin: 'https://www.linkedin.com/in/srishti-mahapatra-b54062246/',
-    Instagram: 'https://www.instagram.com/srishtimahapatra?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+    Linkedin: 'https://www.linkedin.com/in/abhinav-awasthi11?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+    Instagram: 'https://www.instagram.com/abhinav_ux/',
   },
   {
     image: 'images/Team/Nishant.webp',
