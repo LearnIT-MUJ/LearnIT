@@ -43,7 +43,7 @@ async function createUpcomingEventCards() {
   container.innerHTML = "";
 
   const sorted = upcomingEventsData
-    .filter((e) => new Date(e.startDate) >= new Date())
+    .filter(e => new Date(e.endDate) >= new Date() || new Date(e.regCloseDate) >= new Date())
     .sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
 
   if (sorted.length === 0) {
@@ -75,18 +75,19 @@ async function createUpcomingEventCards() {
         </div>
         <div class="registration-status ${regStatus.status}">${regStatus.message}</div>
         <p id="${countdownId}" class="event-countdown"><span class="loading"></span> Loading countdown...</p>
-        ${hasRegLink ? `
-          <button id="${registerBtnId}" class="${regStatus.buttonClass}" ${!regStatus.canRegister ? "disabled" : ""}
+        ${hasRegLink && regStatus.canRegister ? `
+          <button id="${registerBtnId}" class="${regStatus.buttonClass}"
             data-registration-link="${event.registrationLink}" data-pdf-url="${event.pdfUrl || ""}">
             ${regStatus.message}
           </button>` : ""}
-        ${hasWhatsappLink ? `
-            <a href="${event.whatsappLink}" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 32 32" width="20" style="vertical-align:middle; margin-right:6px; fill:fill:#ffffff;;">
-                <path d="M16.04 2C8.68 2 2.67 8.01 2.67 15.36c0 2.72.8 5.25 2.18 7.38L2 30l7.46-2.26a13.17 13.17 0 006.58 1.74c7.36 0 13.37-6.01 13.37-13.38C29.33 8.01 23.32 2 16.04 2zm0 24.4a11.05 11.05 0 01-5.66-1.53l-.4-.24-4.42 1.33 1.36-4.3-.26-.44a10.95 10.95 0 01-1.61-5.83c0-6.05 4.92-10.96 10.99-10.96S27 8.3 27 14.36c0 6.07-4.91 11.04-10.96 11.04zM21.3 18.88c-.32-.16-1.9-.94-2.2-1.06-.3-.12-.52-.16-.74.16-.22.3-.86 1.06-1.06 1.27-.2.2-.38.22-.7.06-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.57-1.88-1.75-2.2-.18-.3-.02-.46.14-.61.14-.14.32-.38.48-.57.16-.2.22-.32.32-.52.1-.2.04-.4 0-.57-.06-.18-.73-1.77-1-2.44-.26-.62-.52-.54-.74-.55h-.63c-.2 0-.52.06-.8.38s-1.04 1.02-1.04 2.5 1.06 2.9 1.2 3.1c.14.2 2.1 3.2 5.1 4.48.72.3 1.28.48 1.7.62.72.22 1.37.18 1.88.1.58-.08 1.9-.78 2.17-1.53.26-.76.26-1.41.18-1.53-.08-.1-.3-.16-.62-.32z"/>
-                </svg>
-                Join us on WhatsApp
-            </a>` : ""}
+
+        ${hasWhatsappLink && regStatus.canRegister ? `
+          <a href="${event.whatsappLink}" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 32 32" width="20" style="vertical-align:middle; margin-right:6px; fill:fill:#ffffff;;">
+              <path d="M16.04 2C8.68 2 2.67 8.01 2.67 15.36c0 2.72.8 5.25 2.18 7.38L2 30l7.46-2.26a13.17 13.17 0 006.58 1.74c7.36 0 13.37-6.01 13.37-13.38C29.33 8.01 23.32 2 16.04 2zm0 24.4a11.05 11.05 0 01-5.66-1.53l-.4-.24-4.42 1.33 1.36-4.3-.26-.44a10.95 10.95 0 01-1.61-5.83c0-6.05 4.92-10.96 10.99-10.96S27 8.3 27 14.36c0 6.07-4.91 11.04-10.96 11.04zM21.3 18.88c-.32-.16-1.9-.94-2.2-1.06-.3-.12-.52-.16-.74.16-.22.3-.86 1.06-1.06 1.27-.2.2-.38.22-.7.06-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.57-1.88-1.75-2.2-.18-.3-.02-.46.14-.61.14-.14.32-.38.48-.57.16-.2.22-.32.32-.52.1-.2.04-.4 0-.57-.06-.18-.73-1.77-1-2.44-.26-.62-.52-.54-.74-.55h-.63c-.2 0-.52.06-.8.38s-1.04 1.02-1.04 2.5 1.06 2.9 1.2 3.1c.14.2 2.1 3.2 5.1 4.48.72.3 1.28.48 1.7.62.72.22 1.37.18 1.88.1.58-.08 1.9-.78 2.17-1.53.26-.76.26-1.41.18-1.53-.08-.1-.3-.16-.62-.32z"/>
+            </svg>
+            Join us on WhatsApp
+          </a>` : ""}
       </div>`;
   });
 
@@ -111,13 +112,16 @@ function getRegistrationStatus(event) {
       canRegister: false,
       buttonClass: "btn-disabled"
     };
-  if (now >= eventStartDate && now <= eventEndDate)
+
+  // ✅ Registration is still open
+  if (now >= regOpenDate && now <= regCloseDate)
     return {
-      status: "event-ongoing",
-      message: "Event in Progress",
-      canRegister: false,
-      buttonClass: "btn-disabled"
+      status: "registration-open",
+      message: "Register Now",
+      canRegister: true,
+      buttonClass: "btn-register"
     };
+
   if (now < regOpenDate)
     return {
       status: "registration-not-open",
@@ -125,25 +129,30 @@ function getRegistrationStatus(event) {
       canRegister: false,
       buttonClass: "btn-disabled"
     };
-  if (now > regCloseDate)
+
+  // ✅ Registration closed but event may be in progress
+  if (now >= eventStartDate && now <= eventEndDate)
     return {
-      status: "registration-closed",
-      message: "Registration Closed",
+      status: "event-ongoing",
+      message: "Event in Progress",
       canRegister: false,
       buttonClass: "btn-disabled"
     };
 
+  // Registration closed and event hasn’t started yet (edge case)
   return {
-    status: "registration-open",
-    message: "Register Now",
-    canRegister: true,
-    buttonClass: "btn-register"
+    status: "registration-closed",
+    message: "Registration Closed",
+    canRegister: false,
+    buttonClass: "btn-disabled"
   };
 }
 
+
 function initEventCountdown(event, countdownId, registerBtnId) {
-  const start = new Date(event.startDate).getTime();
   const regOpen = new Date(event.regOpenDate).getTime();
+  const regClose = new Date(event.regCloseDate).getTime();
+  const start = new Date(event.startDate).getTime();
   const end = new Date(event.endDate).getTime();
 
   const el = document.getElementById(countdownId);
@@ -163,7 +172,7 @@ function initEventCountdown(event, countdownId, registerBtnId) {
   const timer = setInterval(() => {
     const now = Date.now();
 
-    if (now >= end) {
+    if (now > end) {
       clearInterval(timer);
       if (el) el.style.display = "none";
       return;
@@ -176,20 +185,33 @@ function initEventCountdown(event, countdownId, registerBtnId) {
       btn.textContent = status.message;
     }
 
-    const t = now < regOpen ? regOpen - now : start - now;
+    let label = "", t = 0;
+
+    if (now < regOpen) {
+      t = regOpen - now;
+      label = "⏳ Registration opens in:";
+    } else if (now < regClose) {
+      t = regClose - now;
+      label = "📝 Registration closes in:";
+    } else if (now < start) {
+      t = start - now;
+      label = "🚀 Event starts in:";
+    } else if (now < end) {
+      t = end - now;
+      label = "✅ Event ends in:";
+    }
+
     const d = Math.floor(t / (1000 * 60 * 60 * 24));
     const h = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const m = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
     const s = Math.floor((t % (1000 * 60)) / 1000);
 
     if (el) {
-      el.textContent =
-        now < regOpen
-          ? `⏳ Registration opens in: ${d}d ${h}h ${m}m ${s}s`
-          : `🚀 Event starts in: ${d}d ${h}h ${m}m ${s}s`;
+      el.textContent = `${label} ${d}d ${h}h ${m}m ${s}s`;
     }
   }, 1000);
 }
+
 
 function formatDateTime(dateStr) {
   return new Date(dateStr).toLocaleString([], {
