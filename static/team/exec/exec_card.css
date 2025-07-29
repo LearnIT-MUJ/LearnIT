@@ -146,7 +146,7 @@ body {
   color: #00ffff;
   opacity: 0.2;
   pointer-events: none;
-  z-index: 1; /* instead of -1 */
+  z-index: 1; 
   animation: glitch-animation 1s infinite linear;
 }
 .glitch-title-container {
