@@ -80,7 +80,7 @@ body {
 }
 
 .particle:nth-child(2n) {
-  background: #4040a7;
+  background: #1274e4;
   animation-duration: 30s;
   width: 3px;
   height: 3px;
@@ -140,10 +140,10 @@ body {
 
 .section-title {
       font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 300;
+      font-weight: 600;
       text-align: center;
       margin-bottom: 80px;
-      background: linear-gradient(135deg, #3b82f6, #1d4ed8, #1e40af);
+      background: linear-gradient(135deg,#c2f8f8, #00b3ff, #044ff2);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;

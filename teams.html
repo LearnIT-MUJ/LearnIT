@@ -1,56 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>LearnIT Club</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="static/team/exec/exec_card.css">
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Futuristic Team Card</title>
+  <link rel="stylesheet" href="static/team/exec/exec_card.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- loader -->
-  <div class="loader">
-  <span class="loader-text">loading</span>
-  <span class="load"></span>
-  </div>
-    <!-- Navigation -->
-    <div id="navbar-placeholder"></div>
+  <div id="navbar-placeholder"></div>
 
-    <!-- Team Section -->
-    <section id="team" class="section-team">
-        <div class="container">
-            <h2 class="section-title">Meet Our Team</h2>
-            <p class="section-description">Our talented and dedicated executives and core drive LearnIT forward.</p>
-            <div id="team-cards" class="team-cards-container">
-                <!-- Cards will be dynamically generated here -->
-            </div>
+  <section class="team-section">
+    <!-- Animated Background -->
+    <div class="background-effects">
+      <div class="grid-pattern"></div>
+      <div class="floating-orb orb-1"></div>
+      <div class="floating-orb orb-2"></div>
+      <div class="scan-line scan-top"></div>
+      <div class="scan-line scan-bottom"></div>
+    </div>
+
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <div class="status-indicator">
+          <div class="status-dot"></div>
+          <span class="status-text">SYSTEM ONLINE</span>
         </div>
-    </section>
 
-    <!-- Footer -->
-  <div id="footer-placeholder"></div>
+        <div class="glitch-title-container">
+        <h2 class="main-title">TEAM.EXE</h2>
+        <h2 class="title-glitch">TEAM.EXE</h2>
+        </div>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
-    <script src="static/team/exec/exec.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="components/scripts/navbar.js"></script>
-    <script src="components/scripts/footer.js"></script>
-    <script>
-      window.addEventListener('load', function () {
-    const loader = document.querySelector('.loader');
-    if (loader) {
-      loader.style.opacity = '0';
-      loader.style.pointerEvents = 'none';
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 1000); 
-    }
-  });
-  </script>
+
+        <div class="title-divider">
+          <div class="divider-line left"></div>
+          <i class="fas fa-terminal terminal-icon"></i>
+          <div class="divider-line right"></div>
+        </div>
+
+        <div class="subtitle">
+          <div class="command-line"><span class="prompt cyan">></span> Initializing team protocols...</div>
+          <div class="command-line"><span class="prompt purple">></span> Loading team data...</div>
+          <div class="command-line"><span class="prompt pink">></span> Ready for interaction.</div>
+        </div>
+      </div>
+
+      <!-- Team Cards Container -->
+      <div class="team-card-container" id="teamCardContainer"></div>
+    </div>
+  </section>
+
+  
+  <script src="static/team/exec/exec.js"></script>
+  <script src="components\scripts\navbar.js"></script>
+
 </body>
 </html>
