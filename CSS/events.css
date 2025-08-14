@@ -230,7 +230,7 @@ body {
 .event-img {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 12px;
   margin-bottom: 20px;
   transition: transform 0.3s ease;
@@ -607,5 +607,256 @@ body {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* -------------------------
+   PAST EVENTS (scoped)
+   Desktop: Image Left / Content Right (full-width row)
+   Mobile: Stacked card
+-------------------------- */
+
+/* One row per card */
+.past-events {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  justify-items: stretch;
+}
+
+/* ===== Carousel base (all viewports) ===== */
+.past-events .event-media { position: relative; }
+
+.past-events .carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  outline: none;                /* avoid blue bar when focused on mobile */
+}
+.past-events .carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.past-events .carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.past-events .carousel-slide.is-active { opacity: 1; }
+
+/* nav buttons */
+.past-events .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+.past-events .carousel-btn.prev { left: 8px; }
+.past-events .carousel-btn.next { right: 8px; }
+.past-events .carousel-btn:hover { background: rgba(0,0,0,.5); }
+
+/* dots */
+.past-events .carousel-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+.past-events .carousel-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,.45);
+  border: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+.past-events .carousel-dots .dot.is-active { background: #fff; }
+/* subtle focus for keyboard users, not touch */
+.past-events .carousel .dot:focus { outline: none; }
+.past-events .carousel .dot:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* ---------- Desktop layout ---------- */
+@media (min-width: 1024px) {
+  .event-list.past-events > .event {
+    display: grid;
+    grid-template-columns: 0.95fr 1fr;   /* image : content */
+    max-width: 1150px;
+    margin-inline: auto;
+    padding: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(16,24,48,.55);
+    border: 1px solid rgba(120,162,255,.18);
+    box-shadow: 0 6px 24px rgba(0,0,0,.35), inset 0 0 0 1px rgba(60,100,220,.08);
+    align-items: stretch;                /* columns match row height */
+  }
+
+  /* Image column + carousel fill the row height, driven by content */
+  .event-list.past-events > .event > .event-media {
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    align-self: stretch;
+    background: rgba(16,24,48,.35);
+  }
+
+  /* Desktop: fill pane for a hero look */
+  .event-list.past-events .carousel-slide .event-img,
+  .event-list.past-events > .event > .event-media > .event-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* change to 'contain' if you prefer no crop here */
+    border-radius: 0;
+    background: transparent;
+  }
+
+  /* Upsize controls a bit on desktop */
+  .event-list.past-events .carousel-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .event-list.past-events .carousel-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+  }
+  .event-list.past-events .carousel-btn.prev { left: 10px; }
+  .event-list.past-events .carousel-btn.next { right: 10px; }
+
+  .event-list.past-events .carousel-dots .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  /* Content column (dynamic height, tight spacing) */
+  .event-list.past-events > .event > .event-content {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-content: start;
+  }
+  .event-list.past-events > .event > .event-content > .event-info {
+    display: grid;
+    gap: 10px;
+  }
+
+  .past-events .btn-view-details {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: .88rem;
+    width: auto;
+    margin-top: 6px;
+  }
+}
+
+/* ---------- Tag pills on image (optional) ---------- */
+.past-events .badge {
+  position: absolute;
+  top: 16px;
+  z-index: 2;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .3px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #f8fafc;
+}
+.past-events .badge--left  { left: 16px;  background: rgba(99,102,241,.35); }
+.past-events .badge--right { right: 16px; background: rgba(17,24,39,.55); }
+
+/* ---------- Mobile: stacked card ---------- */
+@media (max-width: 1023.98px) {
+  /* Make the list scrollable horizontally with snap */
+  .past-events {
+    display: flex !important;
+    gap: 16px;
+    padding: 0 16px 12px;                 /* side padding + a bit of bottom room */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 16px;            /* first card snap offset */
+  }
+  /* hide scrollbar (iOS/Android + desktop mobile views) */
+  .past-events::-webkit-scrollbar { display: none; }
+  .past-events { scrollbar-width: none; -ms-overflow-style: none; }
+
+  /* Each event card acts like a slide */
+  .past-events .event {
+    flex: 0 0 88%;                         /* ~1 card per screen; tweak 86–92% if desired */
+    max-width: none;                       /* override previous max-width */
+    margin: 0;                             /* center handled by flex now */
+    border-radius: 14px;
+    background: rgba(16, 24, 48, 0.55);
+    border: 1px solid rgba(120,162,255,0.18);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(60,100,220,0.06);
+    backdrop-filter: blur(6px);
+    scroll-snap-align: start;              /* snap each card to the left edge */
+  }
+
+  /* Keep a tidy hero image area on cards */
+  .past-events .event-media {
+    aspect-ratio: 16 / 9;
+    margin: 0 0 10px;
+    background: radial-gradient(120% 120% at 0% 50%, rgba(33,55,120,.25), rgba(8,14,32,.25));
+  }
+
+  /* Ensure inner image carousel fills the media area */
+  .carousel,
+  .carousel-track,
+  .carousel-slide { height: 100%; }
+
+  /* Prefer no-crop on small screens (flip to 'cover' if you want fill) */
+  .past-events .carousel-slide .event-img,
+  .past-events > .event > .event-media > .event-img {
+    object-fit: contain;
+  }
+
+  /* Card content sizing on mobile */
+  .past-events .event-content { padding: 16px; }
+  .past-events .event-title { font-size: 1.1rem; }
+  .past-events .event-description { font-size: .95rem; }
+  .past-events .btn-view-details { width: 100%; }
+
+  /* Smaller inner carousel controls on mobile */
+  .past-events .carousel-btn { width: 32px; height: 32px; }
+  .past-events .carousel-dots .dot { width: 7px; height: 7px; }
+}
+
+
+/* Optional inner overlay hook */
+@media (min-width: 1024px) {
+  .past-events .event-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
   }
 }

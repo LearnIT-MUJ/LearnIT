@@ -2,7 +2,32 @@
   {
     "title": "LEARNIT X BOBBLE AI – DATATHON & INTERACTIVE SESSIONS",
     "description": "In collaboration with the School of Information Security and Data Science (SISDS), LearnIT Club successfully hosted a dynamic two-day event with Bobble AI. Held on September 9–10, 2024, it featured hands-on learning, industry expert talks, and a thrilling Datathon, offering students deep insights into data, innovation, and career readiness.",
-    "image": "images/Events/BobbleAI.png",
+    "images": [
+      "images/Events/BobbleAI/1.webp",
+      "images/Events/BobbleAI/2.webp",
+      "images/Events/BobbleAI/3.webp",
+      "images/Events/BobbleAI/4.webp",
+      "images/Events/BobbleAI/5.webp",
+      "images/Events/BobbleAI/6.webp",
+      "images/Events/BobbleAI/7.webp"
+    ],
+    "startDate": "2024-09-09",
+    "endDate": "2024-09-10",
+    "attendees": 150,
+    "pdfUrl": "pdfs/past-events/learnit-bobbleai-summary.pdf"
+  },
+  {
+    "title": "LEARNIT X BOBBLE AI – DATATHON & INTERACTIVE SESSIONS",
+    "description": "In collaboration with the School of Information Security and Data Science (SISDS), LearnIT Club successfully hosted a dynamic two-day event with Bobble AI. Held on September 9–10, 2024, it featured hands-on learning, industry expert talks, and a thrilling Datathon, offering students deep insights into data, innovation, and career readiness.",
+    "images": [
+      "images/Events/BobbleAI/1.webp",
+      "images/Events/BobbleAI/2.webp",
+      "images/Events/BobbleAI/3.webp",
+      "images/Events/BobbleAI/4.webp",
+      "images/Events/BobbleAI/5.webp",
+      "images/Events/BobbleAI/6.webp",
+      "images/Events/BobbleAI/7.webp"
+    ],
     "startDate": "2024-09-09",
     "endDate": "2024-09-10",
     "attendees": 150,
