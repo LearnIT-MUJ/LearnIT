@@ -69,17 +69,9 @@ const teamData = [
     image: 'images/Team/Abhinav_Awasthi.webp',
     name: 'Abhinav Awasthi',
     title: 'Design Sorcerer 🎨 – Breathing magic into every pixel, making ideas visually unforgettable.',
-    role: 'Joint Head of Graphic Design',
+    role: 'Head of Graphic Design',
     Linkedin: 'https://www.linkedin.com/in/abhinav-awasthi11?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     Instagram: 'https://www.instagram.com/abhinav_ux/',
-  },
-  {
-    image: 'images/Team/Nishant.webp',
-    name: 'Nishant',
-    title: 'Visual Artisan 🖌️ – Turning blank canvases into stories, crafting the soul of our identity.',
-    role: 'Joint Head of Graphic Design',
-    Linkedin: 'https://www.linkedin.com/in/blabhardwaj',
-    Instagram: 'https://www.instagram.com/ne.shant?igsh=MXdrZGZvY2JndXRhZA==',
   },
   {
     image: 'images/Team/Rajeev_Singh.webp',
